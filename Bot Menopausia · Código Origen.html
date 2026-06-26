@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bot Menopausia · Código Origen</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230a0a0a'/%3E%3Cellipse cx='50' cy='32' rx='7' ry='14' fill='none' stroke='%23C9A84C' stroke-width='1.5' opacity='0.9'/%3E%3Cellipse cx='50' cy='32' rx='7' ry='14' fill='none' stroke='%23C9A84C' stroke-width='1.5' opacity='0.9' transform='rotate(45 50 50)'/%3E%3Cellipse cx='50' cy='32' rx='7' ry='14' fill='none' stroke='%23C9A84C' stroke-width='1.5' opacity='0.9' transform='rotate(90 50 50)'/%3E%3Cellipse cx='50' cy='32' rx='7' ry='14' fill='none' stroke='%23C9A84C' stroke-width='1.5' opacity='0.9' transform='rotate(135 50 50)'/%3E%3Ccircle cx='50' cy='50' r='6' fill='%23C9A84C' opacity='0.95'/%3E%3Ccircle cx='50' cy='50' r='3' fill='%230a0a0a'/%3E%3C/svg%3E">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Bot Menopausia">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230a0a0a'/%3E%3Cellipse cx='50' cy='32' rx='7' ry='14' fill='none' stroke='%23C9A84C' stroke-width='1.5' opacity='0.9'/%3E%3Cellipse cx='50' cy='32' rx='7' ry='14' fill='none' stroke='%23C9A84C' stroke-width='1.5' opacity='0.9' transform='rotate(45 50 50)'/%3E%3Cellipse cx='50' cy='32' rx='7' ry='14' fill='none' stroke='%23C9A84C' stroke-width='1.5' opacity='0.9' transform='rotate(90 50 50)'/%3E%3Cellipse cx='50' cy='32' rx='7' ry='14' fill='none' stroke='%23C9A84C' stroke-width='1.5' opacity='0.9' transform='rotate(135 50 50)'/%3E%3Ccircle cx='50' cy='50' r='6' fill='%23C9A84C' opacity='0.95'/%3E%3Ccircle cx='50' cy='50' r='3' fill='%230a0a0a'/%3E%3C/svg%3E">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap');
 
@@ -31,6 +35,7 @@
     line-height: 1.7;
   }
 
+  /* HEADER */
   .header {
     border-bottom: 1px solid var(--gris-borde);
     padding: 20px 24px;
@@ -66,8 +71,10 @@
   }
   .btn-reiniciar:hover { border-color: var(--dorado); color: var(--dorado); }
 
+  /* MAIN */
   .main { max-width: 720px; margin: 0 auto; padding: 32px 24px 80px; }
 
+  /* FASE SELECTOR SÍNTOMA */
   .selector-wrap { animation: fadeIn 0.4s ease; }
   .titulo-seccion {
     font-family: 'Cormorant Garamond', serif;
@@ -101,7 +108,10 @@
     transition: all 0.2s;
     text-align: left;
   }
-  .card-sintoma:hover { border-color: var(--dorado); background: #1f1d17; }
+  .card-sintoma:hover {
+    border-color: var(--dorado);
+    background: #1f1d17;
+  }
   .card-sintoma .icono { font-size: 22px; margin-bottom: 8px; display: block; }
   .card-sintoma .nombre {
     font-family: 'Cormorant Garamond', serif;
@@ -113,6 +123,7 @@
   }
   .card-sintoma .desc { font-size: 12px; color: var(--texto-suave); }
 
+  /* PROTOCOLO */
   .protocolo-wrap { animation: fadeIn 0.4s ease; }
 
   .nav-protocolo {
@@ -142,6 +153,7 @@
     letter-spacing: 0.06em;
   }
 
+  /* PROGRESO */
   .barra-progreso-wrap { margin-bottom: 32px; }
   .progreso-label {
     display: flex;
@@ -151,7 +163,12 @@
     margin-bottom: 6px;
     letter-spacing: 0.05em;
   }
-  .barra { height: 2px; background: var(--gris-borde); border-radius: 2px; overflow: hidden; }
+  .barra {
+    height: 2px;
+    background: var(--gris-borde);
+    border-radius: 2px;
+    overflow: hidden;
+  }
   .barra-fill {
     height: 100%;
     background: linear-gradient(90deg, var(--dorado-oscuro), var(--dorado));
@@ -159,237 +176,514 @@
     border-radius: 2px;
   }
 
+  /* PASO */
   .paso-wrap { animation: slideUp 0.35s ease; }
-  .paso-numero { font-size: 11px; color: var(--dorado-oscuro); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 6px; }
-  .paso-titulo { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--dorado-claro); font-weight: 400; margin-bottom: 20px; line-height: 1.3; }
 
-  .bloque { background: var(--gris-oscuro); border: 1px solid var(--gris-borde); border-radius: 8px; padding: 20px; margin-bottom: 16px; }
-  .bloque-label { font-size: 10px; color: var(--dorado-oscuro); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; }
-  .pregunta-texto { font-style: italic; font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--texto); line-height: 1.6; }
-
-  .decreto-contenedor { background: #14120a; border: 1px solid var(--dorado-oscuro); border-radius: 8px; padding: 20px; margin-bottom: 16px; display: none; }
-  .decreto-contenedor.visible { display: block; animation: fadeIn 0.3s ease; }
-  .decreto-label { font-size: 10px; color: var(--dorado); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
-  .decreto-texto { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--dorado-claro); line-height: 1.7; font-style: italic; }
-
-  .botones-respuesta { display: flex; gap: 10px; margin-bottom: 24px; flex-wrap: wrap; }
-  .btn-si, .btn-no, .btn-siguiente {
-    border: none; border-radius: 6px; padding: 11px 24px; cursor: pointer;
-    font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 400; letter-spacing: 0.04em; transition: all 0.2s;
+  .paso-numero {
+    font-size: 11px;
+    color: var(--dorado-oscuro);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
   }
-  .btn-si { background: #1a1600; border: 1px solid var(--dorado-oscuro); color: var(--dorado); }
+  .paso-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--dorado-claro);
+    font-weight: 400;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  /* PREGUNTA */
+  .bloque {
+    background: var(--gris-oscuro);
+    border: 1px solid var(--gris-borde);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+  .bloque-label {
+    font-size: 10px;
+    color: var(--dorado-oscuro);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .pregunta-texto {
+    font-size: 15px;
+    color: var(--texto);
+    line-height: 1.6;
+    font-style: italic;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+  }
+
+  /* DECRETO */
+  .decreto-contenedor {
+    background: #14120a;
+    border: 1px solid var(--dorado-oscuro);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 16px;
+    display: none;
+  }
+  .decreto-contenedor.visible { display: block; animation: fadeIn 0.3s ease; }
+  .decreto-label {
+    font-size: 10px;
+    color: var(--dorado);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .decreto-texto {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    color: var(--dorado-claro);
+    line-height: 1.7;
+    font-style: italic;
+  }
+
+  /* BOTONES RESPUESTA */
+  .botones-respuesta {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+  }
+  .btn-si, .btn-no, .btn-siguiente {
+    border: none;
+    border-radius: 6px;
+    padding: 11px 24px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    transition: all 0.2s;
+  }
+  .btn-si {
+    background: #1a1600;
+    border: 1px solid var(--dorado-oscuro);
+    color: var(--dorado);
+  }
   .btn-si:hover { background: #2a2200; border-color: var(--dorado); }
   .btn-si.activo { background: var(--dorado-oscuro); color: #fff; border-color: var(--dorado); }
-  .btn-no { background: var(--gris-medio); border: 1px solid var(--gris-borde); color: var(--texto-suave); }
+
+  .btn-no {
+    background: var(--gris-medio);
+    border: 1px solid var(--gris-borde);
+    color: var(--texto-suave);
+  }
   .btn-no:hover { border-color: #555; color: var(--texto); }
   .btn-no.activo { background: #2a2a2a; border-color: #666; color: var(--texto); }
-  .btn-siguiente { background: var(--dorado); color: var(--negro); padding: 11px 28px; font-weight: 500; margin-top: 8px; width: 100%; }
+
+  .btn-siguiente {
+    background: var(--dorado);
+    color: var(--negro);
+    padding: 11px 28px;
+    font-weight: 500;
+    margin-top: 8px;
+    width: 100%;
+  }
   .btn-siguiente:hover { background: var(--dorado-claro); }
   .btn-siguiente:disabled { opacity: 0.3; cursor: not-allowed; }
 
-  .decreto-general { background: #0f0d06; border: 1px solid var(--dorado); border-radius: 10px; padding: 28px; margin-top: 8px; animation: fadeIn 0.4s ease; }
-  .decreto-general .titulo { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--dorado); margin-bottom: 16px; }
-  .decreto-general .texto { font-family: 'Cormorant Garamond', serif; font-size: 17px; color: var(--dorado-claro); line-height: 1.8; font-style: italic; }
+  /* CIERRE PROTOCOLO */
+  .decreto-general {
+    background: #0f0d06;
+    border: 1px solid var(--dorado);
+    border-radius: 10px;
+    padding: 28px;
+    margin-top: 8px;
+    animation: fadeIn 0.4s ease;
+  }
+  .decreto-general .titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    color: var(--dorado);
+    margin-bottom: 16px;
+  }
+  .decreto-general .texto {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    color: var(--dorado-claro);
+    line-height: 1.8;
+    font-style: italic;
+  }
 
+  /* INICIO — PROTOCOLO PREVIO */
   .inicio-wrap { animation: fadeIn 0.4s ease; }
-  .aviso-inicio { background: var(--gris-oscuro); border-left: 3px solid var(--dorado); padding: 16px 20px; border-radius: 0 8px 8px 0; margin-bottom: 28px; font-size: 13px; color: var(--texto-suave); }
+  .aviso-inicio {
+    background: var(--gris-oscuro);
+    border-left: 3px solid var(--dorado);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 28px;
+    font-size: 13px;
+    color: var(--texto-suave);
+  }
 
-  .completado { text-align: center; padding: 40px 0; animation: fadeIn 0.5s ease; }
+  /* COMPLETADO */
+  .completado {
+    text-align: center;
+    padding: 40px 0;
+    animation: fadeIn 0.5s ease;
+  }
   .completado .icono { font-size: 40px; margin-bottom: 16px; }
-  .completado h2 { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--dorado-claro); font-weight: 300; margin-bottom: 10px; }
+  .completado h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    color: var(--dorado-claro);
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
   .completado p { color: var(--texto-suave); font-size: 13px; margin-bottom: 28px; }
 
-  .btn-nuevo-sintoma { background: var(--dorado); color: var(--negro); border: none; padding: 13px 28px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 500; font-family: 'Inter', sans-serif; transition: all 0.2s; }
+  .btn-nuevo-sintoma {
+    background: var(--dorado);
+    color: var(--negro);
+    border: none;
+    padding: 13px 28px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.2s;
+    margin-right: 10px;
+  }
   .btn-nuevo-sintoma:hover { background: var(--dorado-claro); }
 
-  .nota-pendiente { background: #1a1200; border: 1px dashed var(--dorado-oscuro); border-radius: 8px; padding: 16px 20px; margin-bottom: 20px; font-size: 12px; color: var(--dorado-oscuro); display: flex; gap: 10px; align-items: flex-start; }
-
-  .tag-bloque { display: inline-block; font-size: 10px; background: #1f1a08; color: var(--dorado-oscuro); border: 1px solid #2a2208; border-radius: 3px; padding: 2px 8px; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; }
+  /* NOTA 6.1 */
+  .nota-pendiente {
+    background: #1a1200;
+    border: 1px dashed var(--dorado-oscuro);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    color: var(--dorado-oscuro);
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
 
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   @keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* Divisor */
+  .divisor {
+    border: none;
+    border-top: 1px solid var(--gris-borde);
+    margin: 20px 0;
+  }
+
+  .tag-bloque {
+    display: inline-block;
+    font-size: 10px;
+    background: #1f1a08;
+    color: var(--dorado-oscuro);
+    border: 1px solid #2a2208;
+    border-radius: 3px;
+    padding: 2px 8px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <div class="logo">Código Origen<span>Protocolo Menopausia & Perimenopausia</span></div>
+  <div class="logo">
+    Código Origen
+    <span>Protocolo Menopausia & Perimenopausia</span>
+  </div>
   <button class="btn-reiniciar" onclick="reiniciar()">↺ Reiniciar</button>
 </div>
 
 <div class="main" id="app"></div>
 
 <script>
+// ═══════════════════════════════════════════════════
+//  DATOS COMPLETOS DE PROTOCOLO
+// ═══════════════════════════════════════════════════
+
 const PROTOCOLO_INICIO = [
-  { numero: 1, titulo: "Línea media", pregunta: "¿Mi línea media está conectada y alineada al 100%?", decreto: "En conexión con mi Yo Superior y en nombre de la Fuente, conectar y alinear cuerpo, médula, cerebro, mente, alma y espíritu en la línea media, en coherencia perfecta. Corregido." },
-  { numero: 2, titulo: "Nivel de energía", pregunta: "¿Mi nivel de energía está al 100%?", decreto: "En conexión con mi Yo Superior y en nombre de la Fuente, subir, equilibrar y optimizar mi nivel de energía al 100%, con potencial infinito. Corregido." },
-  { numero: 3, titulo: "Larvas", pregunta: "¿Hay larvas energéticas en este sistema?", decreto: "En conexión con mi Yo Superior y en nombre de la Fuente, eliminar larvas por agujero negro, donde se disuelven y neutralizan completamente. No queda rastro. Hecho está." },
-  { numero: 4, titulo: "Entidades", pregunta: "¿Hay entidades interfiriendo en este sistema?", decreto: "En conexión con mi Yo Superior y en nombre de la Fuente, enviar toda entidad o conciencia no perteneciente a este campo por agujero de gusano a su lugar correcto, donde pertenece y no puede regresar. Hecho está." }
+  {
+    numero: 1,
+    titulo: "Línea media",
+    pregunta: "¿Mi línea media está conectada y alineada al 100%?",
+    decreto: "En conexión con mi Yo Superior y en nombre de la Fuente, conectar y alinear cuerpo, médula, cerebro, mente, alma y espíritu en la línea media, en coherencia perfecta. Corregido."
+  },
+  {
+    numero: 2,
+    titulo: "Nivel de energía",
+    pregunta: "¿Mi nivel de energía está al 100%?",
+    decreto: "En conexión con mi Yo Superior y en nombre de la Fuente, subir, equilibrar y optimizar mi nivel de energía al 100%, con potencial infinito. Corregido."
+  },
+  {
+    numero: 3,
+    titulo: "Larvas",
+    pregunta: "¿Hay larvas energéticas en este sistema?",
+    decreto: "En conexión con mi Yo Superior y en nombre de la Fuente, eliminar larvas por agujero negro, donde se disuelven y neutralizan completamente. No queda rastro. Hecho está."
+  },
+  {
+    numero: 4,
+    titulo: "Entidades",
+    pregunta: "¿Hay entidades interfiriendo en este sistema?",
+    decreto: "En conexión con mi Yo Superior y en nombre de la Fuente, enviar toda entidad o conciencia no perteneciente a este campo por agujero de gusano a su lugar correcto, donde pertenece y no puede regresar. Hecho está."
+  }
 ];
 
 const SINTOMAS = {
-  sofocos: { icono: "🔥", nombre: "Sofocos", desc: "Calor, sudoraciones, inestabilidad térmica", decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de SOFOCOS desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma de sofocos. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.", pasos: [
-    { titulo: "Hipotálamo", bloque: "Sistema endocrino", pregunta: "¿Existe desregulación del hipotálamo en la adaptación menopáusica interfiriendo en la estabilidad térmica e interna?", decreto: "Optimizar y estabilizar la función del hipotálamo durante la menopausia permitiendo equilibrio térmico, neuroendocrino e interno de forma permanente." },
-    { titulo: "Hipófisis", bloque: "Sistema endocrino", pregunta: "¿Existe desregulación hipofisaria interfiriendo en la coordinación hormonal y en la estabilidad del sistema durante la menopausia?", decreto: "Regular y equilibrar la función de la hipófisis durante la menopausia restaurando coherencia y sincronización endocrina de forma permanente." },
-    { titulo: "Ovarios", bloque: "Sistema endocrino", pregunta: "¿Existe dificultad del sistema para integrar la transición funcional de los ovarios en relación con los sofocos menopáusicos?", decreto: "Integrar la transición funcional ovárica de forma equilibrada y estable durante la menopausia de forma permanente." },
-    { titulo: "Suprarrenales", bloque: "Sistema endocrino", pregunta: "¿Existe sobrecarga o desregulación suprarrenal amplificando la respuesta de sofocos durante la menopausia?", decreto: "Regular la función suprarrenal durante la menopausia reduciendo la sobrecarga, la hiperreactividad y la respuesta exagerada del sistema de forma permanente." },
-    { titulo: "Tiroides", bloque: "Sistema endocrino", pregunta: "¿Existe desregulación funcional tiroidea asociada a la inestabilidad térmica y neuroendocrina en menopausia?", decreto: "Optimizar la función tiroidea durante la menopausia permitiendo estabilidad metabólica, térmica y mental de forma permanente." },
-    { titulo: "Hígado", bloque: "Sistema endocrino", pregunta: "¿Existe sobrecarga funcional hepática interfiriendo en la adaptación hormonal y en la intensidad de los sofocos?", decreto: "Optimizar la función hepática durante la menopausia permitiendo mejor regulación hormonal, liberación interna y estabilidad del sistema de forma permanente." },
-    { titulo: "Sistema de termorregulación", bloque: "Sistema nervioso", pregunta: "¿Existe desregulación del sistema de termorregulación durante la menopausia interfiriendo en la estabilidad del organismo?", decreto: "Regular el sistema de termorregulación durante la menopausia restaurando estabilidad térmica y capacidad de adaptación de forma permanente." },
-    { titulo: "Sistema nervioso autónomo", bloque: "Sistema nervioso", pregunta: "¿Existe desregulación del sistema nervioso autónomo manteniendo la hiperreactividad asociada a los sofocos?", decreto: "Regular y equilibrar el sistema nervioso autónomo durante la menopausia restaurando calma, estabilidad y seguridad interna de forma permanente." },
-    { titulo: "Tejido adiposo", bloque: "Sistema nervioso", pregunta: "¿Existe desregulación de la función endocrina del tejido adiposo interfiriendo en la adaptación menopáusica y en la estabilidad de los sofocos?", decreto: "Regular la función endocrina del tejido adiposo durante la menopausia favoreciendo una adaptación hormonal estable de forma permanente." },
-    { titulo: "Respuesta neuroendocrina", bloque: "Sistema nervioso", pregunta: "¿Existe hiperreactividad neuroendocrina asociada a la transición menopáusica interfiriendo en la intensidad de los sofocos?", decreto: "Regular la respuesta neuroendocrina permitiendo una adaptación estable, segura y coherente durante la menopausia de forma permanente." },
-    { titulo: "Sobrecarga emocional acumulada", bloque: "Bloque emocional", pregunta: "¿Existe sobrecarga emocional acumulada interfiriendo en la estabilidad del sistema y favoreciendo la aparición de sofocos?", decreto: "Liberar y regular la sobrecarga emocional acumulada permitiendo equilibrio interno, descarga adecuada y estabilidad del sistema de forma permanente." },
-    { titulo: "Emociones contenidas", bloque: "Bloque emocional", pregunta: "¿Existe contención emocional interfiriendo en la regulación del sistema y expresándose a través de los sofocos?", decreto: "Permitir la expresión, liberación e integración de las emociones contenidas de forma segura, ordenada y equilibrada de forma permanente." },
-    { titulo: "Conflicto de identidad o etapa vital", bloque: "Bloque emocional", pregunta: "¿Existe conflicto de identidad o dificultad para integrar la nueva etapa vital asociado a la expresión de sofocos en menopausia?", decreto: "Integrar la nueva etapa vital con coherencia, estabilidad, aceptación y seguridad interna de forma permanente." },
-    { titulo: "Hiperactividad mental", bloque: "Bloque mental", pregunta: "¿Existe hiperactividad mental interfiriendo en la regulación del sistema y aumentando la reactividad de los sofocos?", decreto: "Calmar y regular la actividad mental permitiendo silencio interno, menor activación y mayor estabilidad del sistema de forma permanente." },
-    { titulo: "Necesidad de control", bloque: "Bloque mental", pregunta: "¿Existe necesidad de control interfiriendo en la adaptación natural del sistema durante los sofocos menopáusicos?", decreto: "Soltar el control excesivo permitiendo adaptación, flexibilidad y regulación natural del organismo de forma permanente." },
-    { titulo: "Interpretación de amenaza", bloque: "Bloque mental", pregunta: "¿Existe interpretación mental de amenaza asociada a los sofocos interfiriendo en la estabilidad del sistema?", decreto: "Reprogramar la percepción interna permitiendo interpretar la menopausia y sus cambios como un proceso seguro, comprensible y regulable de forma permanente." },
-    { titulo: "Pérdida de seguridad interna", bloque: "Bloque profundo", pregunta: "¿Existe pérdida de seguridad interna activando y manteniendo la respuesta de sofocos durante la menopausia?", decreto: "Restaurar la sensación de seguridad interna, confianza corporal y estabilidad profunda del sistema durante la menopausia de forma permanente." }
-  ]},
-  insomnio: { icono: "🌙", nombre: "Insomnio", desc: "Dificultad para dormir o descanso interrumpido", decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de INSOMNIO desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma de insomnio. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.", pasos: [
-    { titulo: "Melatonina (pineal)", bloque: "Sistema hormonal", pregunta: "¿Existe alteración en la producción o liberación de melatonina interfiriendo en la inducción y mantenimiento del sueño?", decreto: "Restaurar la producción, liberación y acción de la melatonina permitiendo un inicio y mantenimiento del sueño profundo de forma natural y estable." },
-    { titulo: "Cortisol nocturno", bloque: "Sistema hormonal", pregunta: "¿Existe elevación del cortisol en horario nocturno interfiriendo en el descanso?", decreto: "Regular el ritmo del cortisol reduciendo su elevación nocturna y permitiendo su descenso fisiológico durante la noche." },
-    { titulo: "Adrenalina / Activación nocturna", bloque: "Sistema hormonal", pregunta: "¿Existe activación de adrenalina o respuesta de alerta nocturna interfiriendo en la continuidad del sueño?", decreto: "Reducir la activación adrenérgica nocturna permitiendo estabilidad del sistema y mantenimiento del sueño." },
-    { titulo: "Ritmo circadiano", bloque: "Sistema hormonal", pregunta: "¿Existe desincronización del ritmo circadiano afectando el patrón de sueño?", decreto: "Restablecer el ritmo circadiano permitiendo coherencia entre el ciclo día–noche." },
-    { titulo: "Hipotálamo (sueño)", bloque: "Sistema hormonal", pregunta: "¿Existe desregulación del hipotálamo afectando la regulación del sueño y la activación nocturna?", decreto: "Regular el hipotálamo permitiendo estabilidad en los ritmos de sueño y vigilia." },
-    { titulo: "Progesterona", bloque: "Sistema hormonal", pregunta: "¿Existe descenso funcional de la progesterona interfiriendo en la capacidad de relajación del sistema?", decreto: "Compensar funcionalmente el descenso de progesterona favoreciendo la relajación y estabilidad del sistema nervioso." },
-    { titulo: "Suprarrenales", bloque: "Sistema hormonal", pregunta: "¿Existe desregulación suprarrenal manteniendo la activación nocturna o el despertar precoz?", decreto: "Regular la función suprarrenal restaurando un patrón adecuado de activación y descanso." },
-    { titulo: "Sistema nervioso autónomo", bloque: "Sistema nervioso", pregunta: "¿Existe predominio del sistema simpático impidiendo la entrada en estado de descanso?", decreto: "Equilibrar el sistema nervioso autónomo favoreciendo el predominio parasimpático durante la noche." },
-    { titulo: "Hígado (noche)", bloque: "Sistema nervioso", pregunta: "¿Existe sobrecarga hepática interfiriendo en la regulación nocturna del organismo?", decreto: "Optimizar la función hepática favoreciendo la regulación interna durante el descanso." },
-    { titulo: "Sobrecarga emocional no resuelta", bloque: "Bloque emocional", pregunta: "¿Existe carga emocional no procesada manteniendo la activación del sistema durante la noche?", decreto: "Liberar la carga emocional acumulada permitiendo cierre interno y descanso profundo." },
-    { titulo: "Dificultad para soltar el día", bloque: "Bloque emocional", pregunta: "¿Existe dificultad para soltar el día interfiriendo en la entrada al sueño?", decreto: "Permitir cerrar el día y soltar la actividad favoreciendo el descanso." },
-    { titulo: "Hiperactividad mental", bloque: "Bloque mental", pregunta: "¿Existe actividad mental elevada interfiriendo en la conciliación del sueño?", decreto: "Reducir la actividad mental permitiendo calma y silencio interno." },
-    { titulo: "Rumiación", bloque: "Bloque mental", pregunta: "¿Existe repetición de pensamientos manteniendo la activación nocturna?", decreto: "Detener la rumiación mental favoreciendo desconexión." },
-    { titulo: "Anticipación / Preocupación", bloque: "Bloque mental", pregunta: "¿Existe anticipación o preocupación interfiriendo en el descanso?", decreto: "Reducir la anticipación permitiendo descanso en el presente." },
-    { titulo: "Necesidad de control", bloque: "Bloque mental", pregunta: "¿Existe necesidad de control interfiriendo en la capacidad de dormir?", decreto: "Soltar el control permitiendo descanso natural." },
-    { titulo: "Interpretación de amenaza", bloque: "Bloque profundo", pregunta: "¿Existe percepción de amenaza interna asociada al insomnio?", decreto: "Reinterpretar el estado interno como seguro permitiendo relajación." },
-    { titulo: "Seguridad interna (núcleo)", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna impidiendo la desconexión del sistema?", decreto: "Restaurar la seguridad interna permitiendo descanso profundo y estable." }
-  ]},
-  peso: { icono: "⚖️", nombre: "Aumento de peso / Hinchazón", desc: "Acumulación, retención de líquidos, dificultad metabólica", decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de SOBREPESO E HINCHAZÓN desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.", pasos: [
-    { titulo: "Insulina", bloque: "Sistema metabólico", pregunta: "¿Existe resistencia a la insulina interfiriendo en el uso de la energía y favoreciendo la acumulación de grasa?", decreto: "Mejorar la sensibilidad a la insulina permitiendo un uso eficiente de la energía y reduciendo el almacenamiento excesivo." },
-    { titulo: "Páncreas", bloque: "Sistema metabólico", pregunta: "¿Existe desregulación pancreática afectando la producción o liberación de insulina?", decreto: "Regular la función del páncreas permitiendo una respuesta adecuada y equilibrada." },
-    { titulo: "Cortisol", bloque: "Sistema metabólico", pregunta: "¿Existe elevación del cortisol manteniendo al organismo en modo acumulación y retención?", decreto: "Regular el cortisol permitiendo salir del estado de estrés metabólico." },
-    { titulo: "Suprarrenales", bloque: "Sistema metabólico", pregunta: "¿Existe activación suprarrenal mantenida interfiriendo en la regulación del peso?", decreto: "Equilibrar la función suprarrenal reduciendo la activación del sistema." },
-    { titulo: "Tiroides", bloque: "Sistema metabólico", pregunta: "¿Existe enlentecimiento funcional tiroideo interfiriendo en el metabolismo?", decreto: "Optimizar la función tiroidea favoreciendo un metabolismo activo y equilibrado." },
-    { titulo: "Hígado", bloque: "Sistema metabólico", pregunta: "¿Existe sobrecarga hepática interfiriendo en la regulación metabólica y en la depuración del organismo?", decreto: "Optimizar la función hepática favoreciendo la regulación interna y la eliminación." },
-    { titulo: "Sistema linfático", bloque: "Retención líquidos", pregunta: "¿Existe enlentecimiento del sistema linfático interfiriendo en el drenaje de líquidos?", decreto: "Activar el sistema linfático favoreciendo la eliminación de líquidos y la desinflamación." },
-    { titulo: "Sistema renal", bloque: "Retención líquidos", pregunta: "¿Existe desregulación renal interfiriendo en la eliminación de líquidos?", decreto: "Optimizar la función renal favoreciendo el equilibrio hídrico." },
-    { titulo: "Retención de líquidos", bloque: "Retención líquidos", pregunta: "¿Existe desregulación en la gestión de líquidos favoreciendo la retención?", decreto: "Regular el equilibrio de líquidos permitiendo una correcta distribución y eliminación." },
-    { titulo: "Modo retención por escasez", bloque: "Retención líquidos", pregunta: "¿Existe activación del modo retención por restricción alimentaria o percepción de escasez?", decreto: "Desactivar el modo retención permitiendo al organismo entrar en seguridad metabólica." },
-    { titulo: "Tejido adiposo", bloque: "Retención líquidos", pregunta: "¿Existe desregulación del tejido adiposo manteniendo el almacenamiento de grasa?", decreto: "Equilibrar la función del tejido adiposo permitiendo un almacenamiento adecuado." },
-    { titulo: "Retención de grasa como protección", bloque: "Bloque emocional", pregunta: "¿Existe almacenamiento de grasa como mecanismo de protección o compensación del organismo?", decreto: "Regular el almacenamiento de grasa permitiendo al organismo salir del modo protección." },
-    { titulo: "Sistema nervioso", bloque: "Bloque emocional", pregunta: "¿Existe estado de alerta manteniendo al cuerpo en modo protección y acumulación?", decreto: "Regular el sistema nervioso permitiendo salir del estado de alerta." },
-    { titulo: "Acumulación emocional", bloque: "Bloque emocional", pregunta: "¿Existe acumulación emocional reflejada en el cuerpo como retención o aumento de peso?", decreto: "Liberar la carga emocional permitiendo ligereza interna." },
-    { titulo: "Necesidad de protección", bloque: "Bloque emocional", pregunta: "¿Existe necesidad de protección expresada a través del cuerpo?", decreto: "Reducir la necesidad de protección restaurando seguridad interna." },
-    { titulo: "Control y autoexigencia", bloque: "Bloque mental", pregunta: "¿Existe control o exigencia interfiriendo en la regulación corporal?", decreto: "Reducir el control permitiendo adaptación y equilibrio." },
-    { titulo: "Seguridad interna", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna manteniendo el estado de acumulación?", decreto: "Restaurar la seguridad interna permitiendo al cuerpo soltar la acumulación." }
-  ]},
-  libido: { icono: "🌹", nombre: "Falta de libido", desc: "Disminución del deseo, sequedad vaginal, desconexión", decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de FALTA DE LIBIDO desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.", pasos: [
-    { titulo: "Estrógenos", bloque: "Bloque hormonal", pregunta: "¿Existe descenso de estrógenos interfiriendo en la sensibilidad, la lubricación y la respuesta sexual?", decreto: "Optimizar la función estrogénica favoreciendo la sensibilidad, la lubricación y la respuesta corporal de forma equilibrada." },
-    { titulo: "Progesterona", bloque: "Bloque hormonal", pregunta: "¿Existe disminución de progesterona interfiriendo en la relajación del sistema y la capacidad de apertura al deseo?", decreto: "Compensar funcionalmente la progesterona favoreciendo un estado de calma, receptividad y apertura corporal." },
-    { titulo: "Testosterona", bloque: "Bloque hormonal", pregunta: "¿Existe disminución de testosterona interfiriendo en el impulso, el deseo y la iniciativa sexual?", decreto: "Optimizar la función androgénica favoreciendo el deseo, la iniciativa y la energía vital de forma equilibrada." },
-    { titulo: "Dopamina", bloque: "Bloque neuroquímico", pregunta: "¿Existe disminución de la actividad dopaminérgica interfiriendo en la motivación, el interés y el deseo?", decreto: "Regular la actividad dopaminérgica favoreciendo el interés, la motivación y la activación del deseo de forma natural." },
-    { titulo: "Oxitocina", bloque: "Bloque neuroquímico", pregunta: "¿Existe disminución de oxitocina interfiriendo en la capacidad de conexión, placer y vínculo?", decreto: "Favorecer la liberación y acción de la oxitocina permitiendo conexión, bienestar y apertura al placer." },
-    { titulo: "Cortisol", bloque: "Estrés y energía", pregunta: "¿Existe elevación del cortisol inhibiendo la libido y manteniendo al organismo en modo alerta?", decreto: "Regular el cortisol permitiendo salir del estado de estrés y facilitando la apertura al deseo." },
-    { titulo: "Suprarrenales", bloque: "Estrés y energía", pregunta: "¿Existe desregulación suprarrenal interfiriendo en la energía disponible y la libido?", decreto: "Equilibrar la función suprarrenal favoreciendo estabilidad, energía y disponibilidad interna." },
-    { titulo: "Tiroides", bloque: "Estrés y energía", pregunta: "¿Existe enlentecimiento funcional tiroideo afectando la energía, la vitalidad y el deseo?", decreto: "Optimizar la función tiroidea favoreciendo energía, activación y vitalidad del organismo." },
-    { titulo: "Sistema nervioso autónomo", bloque: "Sistema nervioso", pregunta: "¿Existe predominio del estado de alerta impidiendo la apertura al deseo y al placer?", decreto: "Regular el sistema nervioso autónomo favoreciendo un estado de seguridad, relajación y apertura." },
-    { titulo: "Respuesta de excitación", bloque: "Sistema nervioso", pregunta: "¿Existe alteración en la respuesta de excitación interfiriendo en la activación corporal y la respuesta sexual?", decreto: "Restaurar la respuesta de excitación permitiendo una activación corporal natural y progresiva." },
-    { titulo: "Conexión corporal", bloque: "Bloque corporal", pregunta: "¿Existe desconexión del cuerpo interfiriendo en la percepción, la sensibilidad o el placer?", decreto: "Restaurar la conexión corporal favoreciendo la percepción, la sensibilidad y la presencia en el cuerpo." },
-    { titulo: "Sensibilidad corporal", bloque: "Bloque corporal", pregunta: "¿Existe disminución de la sensibilidad corporal interfiriendo en la experiencia de placer?", decreto: "Mejorar la sensibilidad corporal favoreciendo la percepción y la respuesta al estímulo." },
-    { titulo: "Sobrecarga emocional", bloque: "Bloque emocional", pregunta: "¿Existe sobrecarga emocional interfiriendo en la disponibilidad interna para el deseo?", decreto: "Liberar la carga emocional permitiendo mayor disponibilidad, apertura y conexión." },
-    { titulo: "Relación con el propio cuerpo", bloque: "Bloque emocional", pregunta: "¿Existe conflicto o rechazo corporal interfiriendo en la libido?", decreto: "Restaurar la relación con el cuerpo favoreciendo aceptación, conexión y seguridad." },
-    { titulo: "Hiperactividad mental", bloque: "Bloque mental", pregunta: "¿Existe actividad mental constante interfiriendo en la presencia y el deseo?", decreto: "Reducir la actividad mental favoreciendo presencia, calma y conexión con el momento." },
-    { titulo: "Control", bloque: "Bloque mental", pregunta: "¿Existe control interfiriendo en la capacidad de sentir y soltarse?", decreto: "Reducir el control permitiendo mayor entrega, espontaneidad y apertura." },
-    { titulo: "Bloqueo del placer", bloque: "Bloque profundo", pregunta: "¿Existe bloqueo en la capacidad de sentir placer interfiriendo en la libido?", decreto: "Permitir la apertura al placer de forma natural, progresiva y segura." },
-    { titulo: "Seguridad interna", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna impidiendo la apertura al deseo?", decreto: "Restaurar la seguridad interna permitiendo al cuerpo abrirse, sentir y sostener el deseo." }
-  ]},
-  niebla: { icono: "🧠", nombre: "Niebla mental", desc: "Falta de claridad, concentración, olvidos", decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de NIEBLA MENTAL desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.", pasos: [
-    { titulo: "Desregulación neurocognitiva", bloque: "Sistema cognitivo", pregunta: "¿Existe desregulación neurocognitiva interfiriendo en la claridad mental, la concentración o la capacidad de procesamiento durante la menopausia?", decreto: "Regular la función cognitiva favoreciendo claridad, enfoque, organización mental y capacidad de procesamiento de forma estable." },
-    { titulo: "Influencia estrogénica", bloque: "Sistema cognitivo", pregunta: "¿Existe disminución de la influencia estrogénica afectando el funcionamiento cerebral durante la menopausia?", decreto: "Optimizar la adaptación cerebral a la disminución estrogénica favoreciendo claridad mental, memoria, plasticidad neuronal y rendimiento cognitivo." },
-    { titulo: "Cortisol y eje del estrés", bloque: "Sistema cognitivo", pregunta: "¿Existe elevación o desregulación del cortisol interfiriendo en la función mental y manteniendo al cerebro en estado de alerta?", decreto: "Regular el cortisol favoreciendo estabilidad neuroendocrina, menor sobrecarga y mejor capacidad de concentración." },
-    { titulo: "Sobrecarga mental", bloque: "Sistema cognitivo", pregunta: "¿Existe sobrecarga mental sostenida interfiriendo en la organización interna y la claridad cognitiva?", decreto: "Reducir la sobrecarga mental favoreciendo orden, espacio interno, claridad y mejor integración de la información." },
-    { titulo: "Recuperación cognitiva", bloque: "Sistema cognitivo", pregunta: "¿Existe falta de descanso o recuperación cognitiva real interfiriendo en la función mental?", decreto: "Favorecer la recuperación cognitiva permitiendo descanso mental, reorganización interna y claridad sostenida." },
-    { titulo: "Sistema nervioso", bloque: "Sistema nervioso", pregunta: "¿Existe activación del sistema nervioso interfiriendo en la capacidad del cerebro para entrar en modo de enfoque y procesamiento estable?", decreto: "Regular el sistema nervioso favoreciendo calma, estabilidad y mejor funcionamiento neurocognitivo." },
-    { titulo: "Energía cerebral (mitocondrial)", bloque: "Sistema nervioso", pregunta: "¿Existe disminución en la producción de energía a nivel cerebral interfiriendo en la claridad mental y el rendimiento cognitivo?", decreto: "Optimizar la función energética cerebral favoreciendo rendimiento cognitivo, claridad mental y capacidad de procesamiento." },
-    { titulo: "Neurotransmisores", bloque: "Sistema nervioso", pregunta: "¿Existe desregulación de neurotransmisores como dopamina o acetilcolina interfiriendo en la atención, memoria o enfoque?", decreto: "Regular los neurotransmisores favoreciendo atención, memoria, enfoque y rendimiento cognitivo." },
-    { titulo: "Glucosa y energía cerebral", bloque: "Sistema nervioso", pregunta: "¿Existe desregulación de la glucosa interfiriendo en el suministro de energía al cerebro?", decreto: "Regular la glucosa favoreciendo aporte energético estable al cerebro y mejor función cognitiva." },
-    { titulo: "Hígado y claridad mental", bloque: "Sistema nervioso", pregunta: "¿Existe sobrecarga hepática interfiriendo en la claridad mental y en la regulación interna del organismo?", decreto: "Optimizar la función hepática favoreciendo depuración, equilibrio interno y claridad mental." },
-    { titulo: "Inflamación de bajo grado", bloque: "Sistema nervioso", pregunta: "¿Existe inflamación funcional interfiriendo en la función cerebral y la claridad cognitiva?", decreto: "Reducir la inflamación favoreciendo equilibrio cerebral, claridad mental y mejor rendimiento cognitivo." },
-    { titulo: "Estado de alerta y seguridad interna", bloque: "Bloque profundo", pregunta: "¿Existe estado de alerta o falta de seguridad interna interfiriendo en la capacidad del cerebro para relajarse y procesar información?", decreto: "Restaurar la seguridad interna favoreciendo calma, estabilidad y mejor funcionamiento cognitivo." },
-    { titulo: "Adaptación a la menopausia", bloque: "Bloque profundo", pregunta: "¿Existe dificultad en la adaptación del sistema a los cambios hormonales de la menopausia afectando la función cognitiva?", decreto: "Favorecer la adaptación del organismo a la menopausia permitiendo mayor estabilidad, claridad mental y regulación neurocognitiva." }
-  ]},
-  humor: { icono: "🌊", nombre: "Cambios de humor / Irritabilidad", desc: "Labilidad emocional, irritabilidad, inestabilidad", decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de CAMBIOS DE HUMOR E IRRITABILIDAD desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.", pasos: [
-    { titulo: "Inestabilidad emocional hormonal", bloque: "Sistema hormonal", pregunta: "¿Existe inestabilidad emocional asociada a la fluctuación hormonal durante la menopausia?", decreto: "Regular la influencia hormonal sobre el estado emocional favoreciendo estabilidad, coherencia y equilibrio interno de forma permanente." },
-    { titulo: "Estrógenos (regulación emocional)", bloque: "Sistema hormonal", pregunta: "¿Existe disminución de la influencia estrogénica afectando la regulación emocional y la estabilidad del humor?", decreto: "Optimizar la adaptación del sistema emocional a la disminución estrogénica favoreciendo mayor estabilidad y coherencia interna." },
-    { titulo: "Progesterona (calma interna)", bloque: "Sistema hormonal", pregunta: "¿Existe descenso de progesterona reduciendo la capacidad del sistema de mantenerse calmado y estable?", decreto: "Compensar funcionalmente el descenso de progesterona favoreciendo calma, equilibrio y menor reactividad emocional." },
-    { titulo: "Cortisol y eje del estrés", bloque: "Sistema hormonal", pregunta: "¿Existe elevación o desregulación del cortisol manteniendo al sistema en estado de alerta emocional?", decreto: "Regular el cortisol favoreciendo menor reactividad, estabilidad emocional y mayor capacidad de respuesta equilibrada." },
-    { titulo: "Sistema nervioso autónomo", bloque: "Sistema nervioso", pregunta: "¿Existe desregulación del sistema nervioso autónomo amplificando la reactividad emocional?", decreto: "Regular el sistema nervioso autónomo favoreciendo mayor calma, menor reactividad y mejor integración emocional." },
-    { titulo: "Procesamiento emocional", bloque: "Bloque emocional", pregunta: "¿Existe dificultad en el procesamiento emocional generando acumulación y expresión reactiva?", decreto: "Favorecer el procesamiento y la integración emocional permitiendo mayor fluidez, expresión adecuada y estabilidad interna." },
-    { titulo: "Carga emocional acumulada", bloque: "Bloque emocional", pregunta: "¿Existe carga emocional acumulada expresándose como irritabilidad o cambios de humor bruscos?", decreto: "Liberar la carga emocional acumulada permitiendo mayor ligereza, estabilidad y coherencia en la expresión emocional." },
-    { titulo: "Tolerancia a la frustración", bloque: "Bloque emocional", pregunta: "¿Existe disminución de la tolerancia a la frustración amplificando la reactividad emocional?", decreto: "Restaurar la capacidad de tolerar la frustración favoreciendo mayor equilibrio y respuesta adecuada ante los estímulos." },
-    { titulo: "Hiperactividad mental", bloque: "Bloque mental", pregunta: "¿Existe hiperactividad mental sostenida interfiriendo en la estabilidad emocional y favoreciendo la reactividad?", decreto: "Reducir la hiperactividad mental favoreciendo calma, presencia y mayor estabilidad emocional." },
-    { titulo: "Seguridad interna", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna generando mayor vulnerabilidad e inestabilidad emocional?", decreto: "Restaurar la seguridad interna favoreciendo estabilidad, cohesión y mayor capacidad de regulación emocional." }
-  ]},
-  ansiedad: { icono: "💨", nombre: "Ansiedad / Inquietud interna", desc: "Nerviosismo, activación, angustia difusa", decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de ANSIEDAD E INQUIETUD INTERNA desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.", pasos: [
-    { titulo: "Sistema nervioso autónomo", bloque: "Sistema nervioso", pregunta: "¿Existe predominio del sistema simpático manteniendo al organismo en estado de activación o alerta?", decreto: "Regular el sistema nervioso autónomo favoreciendo el predominio parasimpático y un estado de calma, seguridad y estabilidad." },
-    { titulo: "Cortisol crónico", bloque: "Sistema nervioso", pregunta: "¿Existe elevación crónica del cortisol manteniendo la activación del sistema y alimentando la ansiedad?", decreto: "Regular el cortisol permitiendo la desactivación del estado de alerta y la recuperación de la calma interna." },
-    { titulo: "Adrenalina y activación", bloque: "Sistema nervioso", pregunta: "¿Existe activación adrenérgica mantenida generando sensación de nerviosismo, inquietud o activación interna?", decreto: "Reducir la activación adrenérgica permitiendo al sistema entrar en un estado de mayor calma y seguridad." },
-    { titulo: "Estrógenos y estabilidad emocional", bloque: "Sistema hormonal", pregunta: "¿Existe desestabilización del sistema emocional asociada al descenso estrogénico generando mayor vulnerabilidad a la ansiedad?", decreto: "Optimizar la adaptación del sistema a los cambios estrogénicos favoreciendo mayor estabilidad emocional y menor reactividad ansiosa." },
-    { titulo: "Progesterona (calma GABA)", bloque: "Sistema hormonal", pregunta: "¿Existe descenso de la influencia de la progesterona sobre el sistema GABAérgico reduciendo la calma interna?", decreto: "Compensar funcionalmente el descenso de progesterona favoreciendo la actividad GABAérgica y un estado de mayor calma y relajación." },
-    { titulo: "Respuesta de estrés", bloque: "Sistema hormonal", pregunta: "¿Existe hiperactivación del eje de respuesta al estrés manteniendo al sistema en modo supervivencia?", decreto: "Regular el eje de respuesta al estrés favoreciendo la desactivación, la calma y la estabilidad interna." },
-    { titulo: "Estado de alerta mantenido", bloque: "Bloque emocional", pregunta: "¿Existe estado de alerta mantenido como patrón aprendido interfiriendo en la capacidad de relajarse?", decreto: "Desactivar el estado de alerta crónico permitiendo al sistema entrar en seguridad y descanso." },
-    { titulo: "Interpretación de amenaza", bloque: "Bloque emocional", pregunta: "¿Existe interpretación del entorno o del propio cuerpo como amenaza alimentando la respuesta ansiosa?", decreto: "Reprogramar la percepción de amenaza permitiendo interpretar el entorno y el cuerpo como seguros y manejables." },
-    { titulo: "Anticipación y preocupación", bloque: "Bloque mental", pregunta: "¿Existe patrón de anticipación o preocupación excesiva manteniendo la activación del sistema nervioso?", decreto: "Reducir el patrón de anticipación permitiendo mayor presencia, calma y confianza en el proceso." },
-    { titulo: "Necesidad de control", bloque: "Bloque mental", pregunta: "¿Existe necesidad de controlar lo que ocurre generando tensión y activación cuando no es posible?", decreto: "Soltar la necesidad de control permitiendo mayor flexibilidad, confianza y calma interna." },
-    { titulo: "Seguridad interna (núcleo)", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna como núcleo que sostiene la ansiedad y la activación del sistema?", decreto: "Restaurar la seguridad interna de forma profunda permitiendo al sistema relajarse, confiar y encontrar estabilidad." }
-  ]},
-  fatiga: { icono: "🌿", nombre: "Fatiga / Cansancio persistente", desc: "Agotamiento, falta de energía, bajo rendimiento", decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de FATIGA O CANSANCIO PERSISTENTE desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.", pasos: [
-    { titulo: "Producción de energía celular", bloque: "Sistema energético", pregunta: "¿Existe disminución en la producción de energía celular interfiriendo en la vitalidad y el rendimiento del organismo?", decreto: "Optimizar la función mitocondrial favoreciendo mayor producción de energía, vitalidad y rendimiento del sistema." },
-    { titulo: "Cortisol y eje suprarrenal", bloque: "Sistema energético", pregunta: "¿Existe disfunción del eje suprarrenal generando patrones de cortisol que favorecen el agotamiento?", decreto: "Regular el eje suprarrenal favoreciendo un patrón de cortisol más equilibrado y una mayor disponibilidad de energía." },
-    { titulo: "Tiroides (metabolismo energético)", bloque: "Sistema energético", pregunta: "¿Existe enlentecimiento funcional tiroideo reduciendo la disponibilidad energética del organismo?", decreto: "Optimizar la función tiroidea favoreciendo mayor actividad metabólica, energía disponible y reducción de la sensación de fatiga." },
-    { titulo: "Estrógenos y energía vital", bloque: "Sistema hormonal", pregunta: "¿Existe disminución de la influencia estrogénica afectando la energía, la vitalidad y el rendimiento?", decreto: "Optimizar la adaptación del organismo a la disminución estrogénica favoreciendo mayor energía, vitalidad y disponibilidad funcional." },
-    { titulo: "Suprarrenales (fatiga adrenal)", bloque: "Sistema hormonal", pregunta: "¿Existe agotamiento funcional suprarrenal contribuyendo al estado de fatiga persistente?", decreto: "Recuperar la función suprarrenal favoreciendo mayor energía, resistencia y capacidad de respuesta del sistema." },
-    { titulo: "Glucosa e insulina", bloque: "Sistema hormonal", pregunta: "¿Existe desregulación de la glucosa o la insulina interfiriendo en el suministro estable de energía al organismo?", decreto: "Regular la glucosa y la insulina favoreciendo un suministro energético estable y continuo." },
-    { titulo: "Sistema nervioso (fatiga por alerta)", bloque: "Sistema nervioso", pregunta: "¿Existe agotamiento del sistema nervioso por mantenerse en estado de activación o alerta sostenida?", decreto: "Regular el sistema nervioso favoreciendo descanso, recuperación y menor gasto energético por activación innecesaria." },
-    { titulo: "Calidad del descanso", bloque: "Sistema nervioso", pregunta: "¿Existe falta de descanso reparador contribuyendo a la fatiga acumulada?", decreto: "Favorecer el descanso reparador permitiendo recuperación real, restauración del sistema y mayor energía disponible." },
-    { titulo: "Sobrecarga acumulada", bloque: "Bloque emocional", pregunta: "¿Existe sobrecarga sostenida física, emocional o mental generando un estado de agotamiento profundo?", decreto: "Liberar la sobrecarga acumulada permitiendo recuperación, renovación y mayor disponibilidad energética." },
-    { titulo: "Apagamiento del sistema", bloque: "Bloque emocional", pregunta: "¿Existe apagamiento del sistema como respuesta protectora ante el agotamiento sostenido?", decreto: "Reactivar el sistema de forma gradual y segura permitiendo mayor energía, presencia y disponibilidad interna." },
-    { titulo: "Seguridad interna y recuperación", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna impidiendo que el sistema entre en recuperación real?", decreto: "Restaurar la seguridad interna permitiendo al sistema entrar en recuperación, descanso profundo y renovación." }
-  ]},
-  articular: { icono: "🦴", nombre: "Dolores articulares y musculares", desc: "Rigidez, dolor, tensión muscular", decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de DOLORES ARTICULARES Y MUSCULARES desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.", pasos: [
-    { titulo: "Inflamación sistémica de bajo grado", bloque: "Sistema físico", pregunta: "¿Existe inflamación sistémica de bajo grado contribuyendo al dolor articular o muscular?", decreto: "Reducir la inflamación sistémica favoreciendo menor dolor, mayor movilidad y mejor estado general del tejido." },
-    { titulo: "Estrógenos (lubricación articular)", bloque: "Sistema físico", pregunta: "¿Existe disminución de la influencia estrogénica afectando la lubricación articular y la integridad del tejido conectivo?", decreto: "Optimizar la adaptación del tejido articular y conectivo a la disminución estrogénica favoreciendo mayor lubricación, flexibilidad y bienestar." },
-    { titulo: "Cortisol (tensión muscular)", bloque: "Sistema físico", pregunta: "¿Existe elevación del cortisol generando tensión muscular mantenida y mayor sensibilidad al dolor?", decreto: "Regular el cortisol favoreciendo la relajación muscular, menor tensión y reducción de la sensibilidad dolorosa." },
-    { titulo: "Sistema nervioso (hipersensibilidad)", bloque: "Sistema físico", pregunta: "¿Existe hipersensibilidad del sistema nervioso amplificando la percepción del dolor articular o muscular?", decreto: "Regular la respuesta nociceptiva del sistema nervioso favoreciendo menor sensibilidad al dolor y mayor bienestar físico." },
-    { titulo: "Tiroides (metabolismo tisular)", bloque: "Sistema físico", pregunta: "¿Existe enlentecimiento funcional tiroideo afectando el metabolismo del tejido muscular y articular?", decreto: "Optimizar la función tiroidea favoreciendo mayor metabolismo tisular, recuperación y bienestar articular." },
-    { titulo: "Terreno inflamatorio", bloque: "Sistema físico", pregunta: "¿Existe terreno inflamatorio mantenido contribuyendo a la cronificación del dolor?", decreto: "Reducir el terreno inflamatorio favoreciendo equilibrio, menor dolor y mejor regeneración tisular." },
-    { titulo: "Tensión emocional sostenida", bloque: "Bloque emocional", pregunta: "¿Existe tensión emocional sostenida expresándose como rigidez o dolor muscular?", decreto: "Liberar la tensión emocional acumulada permitiendo relajación muscular, soltura y mayor bienestar físico." },
-    { titulo: "Carga acumulada no procesada", bloque: "Bloque emocional", pregunta: "¿Existe carga emocional no procesada sosteniendo la tensión o el dolor en el cuerpo?", decreto: "Liberar la carga emocional no procesada permitiendo al cuerpo soltar, relajarse y recuperar bienestar." },
-    { titulo: "Seguridad interna y relajación", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna manteniendo la tensión corporal y contribuyendo al dolor?", decreto: "Restaurar la seguridad interna permitiendo al cuerpo relajarse, soltarse y recuperar su estado natural de bienestar." }
-  ]},
-  apatia: { icono: "🕯️", nombre: "Apatía / Falta de motivación", desc: "Desinterés, falta de impulso vital, desconexión", decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de APATÍA O FALTA DE MOTIVACIÓN desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma de apatía o falta de motivación. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.", pasos: [
-    { titulo: "Motivación y activación", bloque: "Sistema dopaminérgico", pregunta: "¿Existe disminución de la motivación interfiriendo en la activación, el interés y la iniciativa durante la menopausia?", decreto: "Restaurar la motivación favoreciendo impulso, interés, iniciativa y conexión con la acción." },
-    { titulo: "Dopamina y sistema de recompensa", bloque: "Sistema dopaminérgico", pregunta: "¿Existe desregulación dopaminérgica afectando la capacidad de activación, interés, placer o motivación?", decreto: "Regular la actividad dopaminérgica favoreciendo motivación, impulso interno, interés y conexión con la acción." },
-    { titulo: "Energía vital y disponibilidad", bloque: "Sistema dopaminérgico", pregunta: "¿Existe disminución de la energía disponible interfiriendo en la capacidad del sistema para movilizarse y sostener iniciativa?", decreto: "Favorecer la energía vital permitiendo mayor activación, presencia, disponibilidad y capacidad de acción." },
-    { titulo: "Conexión emocional", bloque: "Bloque emocional", pregunta: "¿Existe desconexión emocional interfiriendo en el interés, la implicación o la motivación?", decreto: "Restaurar la conexión emocional favoreciendo implicación interna, sentido y capacidad de movilización." },
-    { titulo: "Apagamiento del sistema", bloque: "Bloque emocional", pregunta: "¿Existe apagamiento del sistema como respuesta a sobrecarga sostenida o agotamiento interno?", decreto: "Reducir el apagamiento del sistema favoreciendo recuperación, reactivación y mayor disponibilidad interna." },
-    { titulo: "Sistema nervioso y estado de activación", bloque: "Sistema nervioso", pregunta: "¿Existe desregulación del sistema nervioso interfiriendo en la capacidad de activación, interés y respuesta del organismo?", decreto: "Regular el sistema nervioso favoreciendo equilibrio, activación adecuada y capacidad de respuesta." },
-    { titulo: "Hormonas (estrógenos y testosterona)", bloque: "Sistema hormonal", pregunta: "¿Existe disminución de la influencia hormonal, especialmente estrogénica o androgénica, afectando la motivación y la activación?", decreto: "Optimizar la adaptación hormonal favoreciendo energía, impulso, interés y capacidad de acción." },
-    { titulo: "Energía celular (mitocondrial)", bloque: "Sistema hormonal", pregunta: "¿Existe disminución en la producción de energía celular interfiriendo en la sensación de impulso y vitalidad?", decreto: "Optimizar la función mitocondrial favoreciendo energía, activación y rendimiento del organismo." },
-    { titulo: "Sentido y dirección interna", bloque: "Bloque profundo", pregunta: "¿Existe falta de sentido, dirección o propósito interfiriendo en la motivación y la implicación?", decreto: "Restaurar el sentido interno favoreciendo dirección, coherencia y motivación para la acción." },
-    { titulo: "Sobrecarga y saturación", bloque: "Bloque profundo", pregunta: "¿Existe saturación interna o exceso de exigencia interfiriendo en la capacidad del sistema para activarse?", decreto: "Reducir la saturación favoreciendo espacio interno, claridad y disponibilidad para la acción." },
-    { titulo: "Inflamación y estado general", bloque: "Bloque profundo", pregunta: "¿Existe estado inflamatorio funcional interfiriendo en la energía, el estado de ánimo o la motivación?", decreto: "Reducir la inflamación favoreciendo bienestar, energía y mejor disposición interna." },
-    { titulo: "Seguridad interna y expresión", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna interfiriendo en la capacidad de expresarse, actuar o implicarse?", decreto: "Restaurar la seguridad interna favoreciendo confianza, acción y conexión con la propia iniciativa." },
-    { titulo: "Adaptación a la menopausia", bloque: "Bloque profundo", pregunta: "¿Existe dificultad en la adaptación del sistema a los cambios de la menopausia afectando la motivación y el impulso vital?", decreto: "Favorecer la adaptación del organismo a la menopausia permitiendo mayor estabilidad, activación y coherencia interna." }
-  ]}
+  sofocos: {
+    icono: "🔥",
+    nombre: "Sofocos",
+    desc: "Calor, sudoraciones, inestabilidad térmica",
+    decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de SOFOCOS desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma de sofocos. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.",
+    pasos: [
+      { titulo: "Hipotálamo", bloque: "Sistema endocrino", pregunta: "¿Existe desregulación del hipotálamo en la adaptación menopáusica interfiriendo en la estabilidad térmica e interna?", decreto: "Optimizar y estabilizar la función del hipotálamo durante la menopausia permitiendo equilibrio térmico, neuroendocrino e interno de forma permanente." },
+      { titulo: "Hipófisis", bloque: "Sistema endocrino", pregunta: "¿Existe desregulación hipofisaria interfiriendo en la coordinación hormonal y en la estabilidad del sistema durante la menopausia?", decreto: "Regular y equilibrar la función de la hipófisis durante la menopausia restaurando coherencia y sincronización endocrina de forma permanente." },
+      { titulo: "Ovarios", bloque: "Sistema endocrino", pregunta: "¿Existe dificultad del sistema para integrar la transición funcional de los ovarios en relación con los sofocos menopáusicos?", decreto: "Integrar la transición funcional ovárica de forma equilibrada y estable durante la menopausia de forma permanente." },
+      { titulo: "Suprarrenales", bloque: "Sistema endocrino", pregunta: "¿Existe sobrecarga o desregulación suprarrenal amplificando la respuesta de sofocos durante la menopausia?", decreto: "Regular la función suprarrenal durante la menopausia reduciendo la sobrecarga, la hiperreactividad y la respuesta exagerada del sistema de forma permanente." },
+      { titulo: "Tiroides", bloque: "Sistema endocrino", pregunta: "¿Existe desregulación funcional tiroidea asociada a la inestabilidad térmica y neuroendocrina en menopausia?", decreto: "Optimizar la función tiroidea durante la menopausia permitiendo estabilidad metabólica, térmica y mental de forma permanente." },
+      { titulo: "Hígado", bloque: "Sistema endocrino", pregunta: "¿Existe sobrecarga funcional hepática interfiriendo en la adaptación hormonal y en la intensidad de los sofocos?", decreto: "Optimizar la función hepática durante la menopausia permitiendo mejor regulación hormonal, liberación interna y estabilidad del sistema de forma permanente." },
+      { titulo: "Sistema de termorregulación", bloque: "Sistema nervioso", pregunta: "¿Existe desregulación del sistema de termorregulación durante la menopausia interfiriendo en la estabilidad del organismo?", decreto: "Regular el sistema de termorregulación durante la menopausia restaurando estabilidad térmica y capacidad de adaptación de forma permanente." },
+      { titulo: "Sistema nervioso autónomo", bloque: "Sistema nervioso", pregunta: "¿Existe desregulación del sistema nervioso autónomo manteniendo la hiperreactividad asociada a los sofocos?", decreto: "Regular y equilibrar el sistema nervioso autónomo durante la menopausia restaurando calma, estabilidad y seguridad interna de forma permanente." },
+      { titulo: "Tejido adiposo", bloque: "Sistema nervioso", pregunta: "¿Existe desregulación de la función endocrina del tejido adiposo interfiriendo en la adaptación menopáusica y en la estabilidad de los sofocos?", decreto: "Regular la función endocrina del tejido adiposo durante la menopausia favoreciendo una adaptación hormonal estable de forma permanente." },
+      { titulo: "Respuesta neuroendocrina", bloque: "Sistema nervioso", pregunta: "¿Existe hiperreactividad neuroendocrina asociada a la transición menopáusica interfiriendo en la intensidad de los sofocos?", decreto: "Regular la respuesta neuroendocrina permitiendo una adaptación estable, segura y coherente durante la menopausia de forma permanente." },
+      { titulo: "Sobrecarga emocional acumulada", bloque: "Bloque emocional", pregunta: "¿Existe sobrecarga emocional acumulada interfiriendo en la estabilidad del sistema y favoreciendo la aparición de sofocos?", decreto: "Liberar y regular la sobrecarga emocional acumulada permitiendo equilibrio interno, descarga adecuada y estabilidad del sistema de forma permanente." },
+      { titulo: "Emociones contenidas", bloque: "Bloque emocional", pregunta: "¿Existe contención emocional interfiriendo en la regulación del sistema y expresándose a través de los sofocos?", decreto: "Permitir la expresión, liberación e integración de las emociones contenidas de forma segura, ordenada y equilibrada de forma permanente." },
+      { titulo: "Conflicto de identidad o etapa vital", bloque: "Bloque emocional", pregunta: "¿Existe conflicto de identidad o dificultad para integrar la nueva etapa vital asociado a la expresión de sofocos en menopausia?", decreto: "Integrar la nueva etapa vital con coherencia, estabilidad, aceptación y seguridad interna de forma permanente." },
+      { titulo: "Hiperactividad mental", bloque: "Bloque mental", pregunta: "¿Existe hiperactividad mental interfiriendo en la regulación del sistema y aumentando la reactividad de los sofocos?", decreto: "Calmar y regular la actividad mental permitiendo silencio interno, menor activación y mayor estabilidad del sistema de forma permanente." },
+      { titulo: "Necesidad de control", bloque: "Bloque mental", pregunta: "¿Existe necesidad de control interfiriendo en la adaptación natural del sistema durante los sofocos menopáusicos?", decreto: "Soltar el control excesivo permitiendo adaptación, flexibilidad y regulación natural del organismo de forma permanente." },
+      { titulo: "Interpretación de amenaza", bloque: "Bloque mental", pregunta: "¿Existe interpretación mental de amenaza asociada a los sofocos interfiriendo en la estabilidad del sistema?", decreto: "Reprogramar la percepción interna permitiendo interpretar la menopausia y sus cambios como un proceso seguro, comprensible y regulable de forma permanente." },
+      { titulo: "Pérdida de seguridad interna", bloque: "Bloque profundo", pregunta: "¿Existe pérdida de seguridad interna activando y manteniendo la respuesta de sofocos durante la menopausia?", decreto: "Restaurar la sensación de seguridad interna, confianza corporal y estabilidad profunda del sistema durante la menopausia de forma permanente." }
+    ]
+  },
+
+  insomnio: {
+    icono: "🌙",
+    nombre: "Insomnio",
+    desc: "Dificultad para dormir o descanso interrumpido",
+    decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de INSOMNIO desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma de insomnio. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.",
+    pasos: [
+      { titulo: "Melatonina (pineal)", bloque: "Sistema hormonal", pregunta: "¿Existe alteración en la producción o liberación de melatonina interfiriendo en la inducción y mantenimiento del sueño?", decreto: "Restaurar la producción, liberación y acción de la melatonina permitiendo un inicio y mantenimiento del sueño profundo de forma natural y estable." },
+      { titulo: "Cortisol nocturno", bloque: "Sistema hormonal", pregunta: "¿Existe elevación del cortisol en horario nocturno interfiriendo en el descanso?", decreto: "Regular el ritmo del cortisol reduciendo su elevación nocturna y permitiendo su descenso fisiológico durante la noche." },
+      { titulo: "Adrenalina / Activación nocturna", bloque: "Sistema hormonal", pregunta: "¿Existe activación de adrenalina o respuesta de alerta nocturna interfiriendo en la continuidad del sueño?", decreto: "Reducir la activación adrenérgica nocturna permitiendo estabilidad del sistema y mantenimiento del sueño." },
+      { titulo: "Ritmo circadiano", bloque: "Sistema hormonal", pregunta: "¿Existe desincronización del ritmo circadiano afectando el patrón de sueño?", decreto: "Restablecer el ritmo circadiano permitiendo coherencia entre el ciclo día–noche." },
+      { titulo: "Hipotálamo (sueño)", bloque: "Sistema hormonal", pregunta: "¿Existe desregulación del hipotálamo afectando la regulación del sueño y la activación nocturna?", decreto: "Regular el hipotálamo permitiendo estabilidad en los ritmos de sueño y vigilia." },
+      { titulo: "Progesterona", bloque: "Sistema hormonal", pregunta: "¿Existe descenso funcional de la progesterona interfiriendo en la capacidad de relajación del sistema?", decreto: "Compensar funcionalmente el descenso de progesterona favoreciendo la relajación y estabilidad del sistema nervioso." },
+      { titulo: "Suprarrenales", bloque: "Sistema hormonal", pregunta: "¿Existe desregulación suprarrenal manteniendo la activación nocturna o el despertar precoz?", decreto: "Regular la función suprarrenal restaurando un patrón adecuado de activación y descanso." },
+      { titulo: "Sistema nervioso autónomo", bloque: "Sistema nervioso", pregunta: "¿Existe predominio del sistema simpático impidiendo la entrada en estado de descanso?", decreto: "Equilibrar el sistema nervioso autónomo favoreciendo el predominio parasimpático durante la noche." },
+      { titulo: "Hígado (noche)", bloque: "Sistema nervioso", pregunta: "¿Existe sobrecarga hepática interfiriendo en la regulación nocturna del organismo?", decreto: "Optimizar la función hepática favoreciendo la regulación interna durante el descanso." },
+      { titulo: "Sobrecarga emocional no resuelta", bloque: "Bloque emocional", pregunta: "¿Existe carga emocional no procesada manteniendo la activación del sistema durante la noche?", decreto: "Liberar la carga emocional acumulada permitiendo cierre interno y descanso profundo." },
+      { titulo: "Dificultad para soltar el día", bloque: "Bloque emocional", pregunta: "¿Existe dificultad para soltar el día interfiriendo en la entrada al sueño?", decreto: "Permitir cerrar el día y soltar la actividad favoreciendo el descanso." },
+      { titulo: "Hiperactividad mental", bloque: "Bloque mental", pregunta: "¿Existe actividad mental elevada interfiriendo en la conciliación del sueño?", decreto: "Reducir la actividad mental permitiendo calma y silencio interno." },
+      { titulo: "Rumiación", bloque: "Bloque mental", pregunta: "¿Existe repetición de pensamientos manteniendo la activación nocturna?", decreto: "Detener la rumiación mental favoreciendo desconexión." },
+      { titulo: "Anticipación / Preocupación", bloque: "Bloque mental", pregunta: "¿Existe anticipación o preocupación interfiriendo en el descanso?", decreto: "Reducir la anticipación permitiendo descanso en el presente." },
+      { titulo: "Necesidad de control", bloque: "Bloque mental", pregunta: "¿Existe necesidad de control interfiriendo en la capacidad de dormir?", decreto: "Soltar el control permitiendo descanso natural." },
+      { titulo: "Interpretación de amenaza", bloque: "Bloque profundo", pregunta: "¿Existe percepción de amenaza interna asociada al insomnio?", decreto: "Reinterpretar el estado interno como seguro permitiendo relajación." },
+      { titulo: "Seguridad interna (núcleo)", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna impidiendo la desconexión del sistema?", decreto: "Restaurar la seguridad interna permitiendo descanso profundo y estable." }
+    ]
+  },
+
+  peso: {
+    icono: "⚖️",
+    nombre: "Aumento de peso / Hinchazón",
+    desc: "Acumulación, retención de líquidos, dificultad metabólica",
+    decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de SOBREPESO E HINCHAZÓN desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.",
+    pasos: [
+      { titulo: "Insulina", bloque: "Sistema metabólico", pregunta: "¿Existe resistencia a la insulina interfiriendo en el uso de la energía y favoreciendo la acumulación de grasa?", decreto: "Mejorar la sensibilidad a la insulina permitiendo un uso eficiente de la energía y reduciendo el almacenamiento excesivo." },
+      { titulo: "Páncreas", bloque: "Sistema metabólico", pregunta: "¿Existe desregulación pancreática afectando la producción o liberación de insulina?", decreto: "Regular la función del páncreas permitiendo una respuesta adecuada y equilibrada." },
+      { titulo: "Cortisol", bloque: "Sistema metabólico", pregunta: "¿Existe elevación del cortisol manteniendo al organismo en modo acumulación y retención?", decreto: "Regular el cortisol permitiendo salir del estado de estrés metabólico." },
+      { titulo: "Suprarrenales", bloque: "Sistema metabólico", pregunta: "¿Existe activación suprarrenal mantenida interfiriendo en la regulación del peso?", decreto: "Equilibrar la función suprarrenal reduciendo la activación del sistema." },
+      { titulo: "Tiroides", bloque: "Sistema metabólico", pregunta: "¿Existe enlentecimiento funcional tiroideo interfiriendo en el metabolismo?", decreto: "Optimizar la función tiroidea favoreciendo un metabolismo activo y equilibrado." },
+      { titulo: "Hígado", bloque: "Sistema metabólico", pregunta: "¿Existe sobrecarga hepática interfiriendo en la regulación metabólica y en la depuración del organismo?", decreto: "Optimizar la función hepática favoreciendo la regulación interna y la eliminación." },
+      { titulo: "Sistema linfático", bloque: "Retención líquidos", pregunta: "¿Existe enlentecimiento del sistema linfático interfiriendo en el drenaje de líquidos?", decreto: "Activar el sistema linfático favoreciendo la eliminación de líquidos y la desinflamación." },
+      { titulo: "Sistema renal", bloque: "Retención líquidos", pregunta: "¿Existe desregulación renal interfiriendo en la eliminación de líquidos?", decreto: "Optimizar la función renal favoreciendo el equilibrio hídrico." },
+      { titulo: "Retención de líquidos", bloque: "Retención líquidos", pregunta: "¿Existe desregulación en la gestión de líquidos favoreciendo la retención?", decreto: "Regular el equilibrio de líquidos permitiendo una correcta distribución y eliminación." },
+      { titulo: "Modo retención por escasez", bloque: "Retención líquidos", pregunta: "¿Existe activación del modo retención por restricción alimentaria o percepción de escasez?", decreto: "Desactivar el modo retención permitiendo al organismo entrar en seguridad metabólica." },
+      { titulo: "Tejido adiposo", bloque: "Retención líquidos", pregunta: "¿Existe desregulación del tejido adiposo manteniendo el almacenamiento de grasa?", decreto: "Equilibrar la función del tejido adiposo permitiendo un almacenamiento adecuado." },
+      { titulo: "Retención de grasa como protección", bloque: "Bloque emocional", pregunta: "¿Existe almacenamiento de grasa como mecanismo de protección o compensación del organismo?", decreto: "Regular el almacenamiento de grasa permitiendo al organismo salir del modo protección." },
+      { titulo: "Sistema nervioso", bloque: "Bloque emocional", pregunta: "¿Existe estado de alerta manteniendo al cuerpo en modo protección y acumulación?", decreto: "Regular el sistema nervioso permitiendo salir del estado de alerta." },
+      { titulo: "Acumulación emocional", bloque: "Bloque emocional", pregunta: "¿Existe acumulación emocional reflejada en el cuerpo como retención o aumento de peso?", decreto: "Liberar la carga emocional permitiendo ligereza interna." },
+      { titulo: "Necesidad de protección", bloque: "Bloque emocional", pregunta: "¿Existe necesidad de protección expresada a través del cuerpo?", decreto: "Reducir la necesidad de protección restaurando seguridad interna." },
+      { titulo: "Control y autoexigencia", bloque: "Bloque mental", pregunta: "¿Existe control o exigencia interfiriendo en la regulación corporal?", decreto: "Reducir el control permitiendo adaptación y equilibrio." },
+      { titulo: "Seguridad interna", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna manteniendo el estado de acumulación?", decreto: "Restaurar la seguridad interna permitiendo al cuerpo soltar la acumulación." }
+    ]
+  },
+
+  libido: {
+    icono: "🌹",
+    nombre: "Falta de libido",
+    desc: "Disminución del deseo, sequedad vaginal, desconexión",
+    decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de FALTA DE LIBIDO desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia (y si se te viene algo a la cabeza ponlo) que activan la sanación o corrección completa, inmediata y definitiva de este síntoma de falta de libido. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.",
+    pasos: [
+      { titulo: "Estrógenos (respuesta y sensibilidad)", bloque: "Bloque hormonal", pregunta: "¿Existe descenso de estrógenos interfiriendo en la sensibilidad, la lubricación y la respuesta sexual?", decreto: "Optimizar la función estrogénica favoreciendo la sensibilidad, la lubricación y la respuesta corporal de forma equilibrada." },
+      { titulo: "Progesterona (relajación y apertura)", bloque: "Bloque hormonal", pregunta: "¿Existe disminución de progesterona interfiriendo en la relajación del sistema y la capacidad de apertura al deseo?", decreto: "Compensar funcionalmente la progesterona favoreciendo un estado de calma, receptividad y apertura corporal." },
+      { titulo: "Testosterona (deseo e impulso)", bloque: "Bloque hormonal", pregunta: "¿Existe disminución de testosterona interfiriendo en el impulso, el deseo y la iniciativa sexual?", decreto: "Optimizar la función androgénica favoreciendo el deseo, la iniciativa y la energía vital de forma equilibrada." },
+      { titulo: "Dopamina (deseo y motivación)", bloque: "Bloque neuroquímico", pregunta: "¿Existe disminución de la actividad dopaminérgica interfiriendo en la motivación, el interés y el deseo?", decreto: "Regular la actividad dopaminérgica favoreciendo el interés, la motivación y la activación del deseo de forma natural." },
+      { titulo: "Oxitocina (placer y vínculo)", bloque: "Bloque neuroquímico", pregunta: "¿Existe disminución de oxitocina interfiriendo en la capacidad de conexión, placer y vínculo?", decreto: "Favorecer la liberación y acción de la oxitocina permitiendo conexión, bienestar y apertura al placer." },
+      { titulo: "Cortisol", bloque: "Estrés y energía", pregunta: "¿Existe elevación del cortisol inhibiendo la libido y manteniendo al organismo en modo alerta?", decreto: "Regular el cortisol permitiendo salir del estado de estrés y facilitando la apertura al deseo." },
+      { titulo: "Suprarrenales", bloque: "Estrés y energía", pregunta: "¿Existe desregulación suprarrenal interfiriendo en la energía disponible y la libido?", decreto: "Equilibrar la función suprarrenal favoreciendo estabilidad, energía y disponibilidad interna." },
+      { titulo: "Tiroides (energía)", bloque: "Estrés y energía", pregunta: "¿Existe enlentecimiento funcional tiroideo afectando la energía, la vitalidad y el deseo?", decreto: "Optimizar la función tiroidea favoreciendo energía, activación y vitalidad del organismo." },
+      { titulo: "Sistema nervioso autónomo", bloque: "Sistema nervioso", pregunta: "¿Existe predominio del estado de alerta impidiendo la apertura al deseo y al placer?", decreto: "Regular el sistema nervioso autónomo favoreciendo un estado de seguridad, relajación y apertura." },
+      { titulo: "Respuesta de excitación", bloque: "Sistema nervioso", pregunta: "¿Existe alteración en la respuesta de excitación interfiriendo en la activación corporal y la respuesta sexual?", decreto: "Restaurar la respuesta de excitación permitiendo una activación corporal natural y progresiva." },
+      { titulo: "Conexión corporal", bloque: "Bloque corporal", pregunta: "¿Existe desconexión del cuerpo interfiriendo en la percepción, la sensibilidad o el placer?", decreto: "Restaurar la conexión corporal favoreciendo la percepción, la sensibilidad y la presencia en el cuerpo." },
+      { titulo: "Sensibilidad corporal", bloque: "Bloque corporal", pregunta: "¿Existe disminución de la sensibilidad corporal interfiriendo en la experiencia de placer?", decreto: "Mejorar la sensibilidad corporal favoreciendo la percepción y la respuesta al estímulo." },
+      { titulo: "Sobrecarga emocional", bloque: "Bloque emocional", pregunta: "¿Existe sobrecarga emocional interfiriendo en la disponibilidad interna para el deseo?", decreto: "Liberar la carga emocional permitiendo mayor disponibilidad, apertura y conexión." },
+      { titulo: "Relación con el propio cuerpo", bloque: "Bloque emocional", pregunta: "¿Existe conflicto o rechazo corporal interfiriendo en la libido?", decreto: "Restaurar la relación con el cuerpo favoreciendo aceptación, conexión y seguridad." },
+      { titulo: "Hiperactividad mental", bloque: "Bloque mental", pregunta: "¿Existe actividad mental constante interfiriendo en la presencia y el deseo?", decreto: "Reducir la actividad mental favoreciendo presencia, calma y conexión con el momento." },
+      { titulo: "Control", bloque: "Bloque mental", pregunta: "¿Existe control interfiriendo en la capacidad de sentir y soltarse?", decreto: "Reducir el control permitiendo mayor entrega, espontaneidad y apertura." },
+      { titulo: "Bloqueo del placer", bloque: "Bloque profundo", pregunta: "¿Existe bloqueo en la capacidad de sentir placer interfiriendo en la libido?", decreto: "Permitir la apertura al placer de forma natural, progresiva y segura." },
+      { titulo: "Seguridad interna", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna impidiendo la apertura al deseo?", decreto: "Restaurar la seguridad interna permitiendo al cuerpo abrirse, sentir y sostener el deseo." }
+    ]
+  },
+
+  niebla: {
+    icono: "🧠",
+    nombre: "Niebla mental",
+    desc: "Falta de claridad, concentración, olvidos",
+    decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de NIEBLA MENTAL desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.",
+    pasos: [
+      { titulo: "Desregulación neurocognitiva", bloque: "Sistema cognitivo", pregunta: "¿Existe desregulación neurocognitiva interfiriendo en la claridad mental, la concentración o la capacidad de procesamiento durante la menopausia?", decreto: "Regular la función cognitiva favoreciendo claridad, enfoque, organización mental y capacidad de procesamiento de forma estable." },
+      { titulo: "Influencia estrogénica", bloque: "Sistema cognitivo", pregunta: "¿Existe disminución de la influencia estrogénica afectando el funcionamiento cerebral durante la menopausia?", decreto: "Optimizar la adaptación cerebral a la disminución estrogénica favoreciendo claridad mental, memoria, plasticidad neuronal y rendimiento cognitivo." },
+      { titulo: "Cortisol y eje del estrés", bloque: "Sistema cognitivo", pregunta: "¿Existe elevación o desregulación del cortisol interfiriendo en la función mental y manteniendo al cerebro en estado de alerta?", decreto: "Regular el cortisol favoreciendo estabilidad neuroendocrina, menor sobrecarga y mejor capacidad de concentración." },
+      { titulo: "Sobrecarga mental", bloque: "Sistema cognitivo", pregunta: "¿Existe sobrecarga mental sostenida interfiriendo en la organización interna y la claridad cognitiva?", decreto: "Reducir la sobrecarga mental favoreciendo orden, espacio interno, claridad y mejor integración de la información." },
+      { titulo: "Recuperación cognitiva", bloque: "Sistema cognitivo", pregunta: "¿Existe falta de descanso o recuperación cognitiva real interfiriendo en la función mental?", decreto: "Favorecer la recuperación cognitiva permitiendo descanso mental, reorganización interna y claridad sostenida." },
+      { titulo: "Sistema nervioso", bloque: "Sistema nervioso", pregunta: "¿Existe activación del sistema nervioso interfiriendo en la capacidad del cerebro para entrar en modo de enfoque y procesamiento estable?", decreto: "Regular el sistema nervioso favoreciendo calma, estabilidad y mejor funcionamiento neurocognitivo." },
+      { titulo: "Energía cerebral (mitocondrial)", bloque: "Sistema nervioso", pregunta: "¿Existe disminución en la producción de energía a nivel cerebral interfiriendo en la claridad mental y el rendimiento cognitivo?", decreto: "Optimizar la función energética cerebral favoreciendo rendimiento cognitivo, claridad mental y capacidad de procesamiento." },
+      { titulo: "Neurotransmisores (dopamina y acetilcolina)", bloque: "Sistema nervioso", pregunta: "¿Existe desregulación de neurotransmisores como dopamina o acetilcolina interfiriendo en la atención, memoria o enfoque?", decreto: "Regular los neurotransmisores favoreciendo atención, memoria, enfoque y rendimiento cognitivo." },
+      { titulo: "Glucosa y energía cerebral", bloque: "Sistema nervioso", pregunta: "¿Existe desregulación de la glucosa interfiriendo en el suministro de energía al cerebro?", decreto: "Regular la glucosa favoreciendo aporte energético estable al cerebro y mejor función cognitiva." },
+      { titulo: "Hígado y claridad mental", bloque: "Sistema nervioso", pregunta: "¿Existe sobrecarga hepática interfiriendo en la claridad mental y en la regulación interna del organismo?", decreto: "Optimizar la función hepática favoreciendo depuración, equilibrio interno y claridad mental." },
+      { titulo: "Inflamación de bajo grado", bloque: "Sistema nervioso", pregunta: "¿Existe inflamación funcional interfiriendo en la función cerebral y la claridad cognitiva?", decreto: "Reducir la inflamación favoreciendo equilibrio cerebral, claridad mental y mejor rendimiento cognitivo." },
+      { titulo: "Estado de alerta y seguridad interna", bloque: "Bloque profundo", pregunta: "¿Existe estado de alerta o falta de seguridad interna interfiriendo en la capacidad del cerebro para relajarse y procesar información?", decreto: "Restaurar la seguridad interna favoreciendo calma, estabilidad y mejor funcionamiento cognitivo." },
+      { titulo: "Adaptación a la menopausia", bloque: "Bloque profundo", pregunta: "¿Existe dificultad en la adaptación del sistema a los cambios hormonales de la menopausia afectando la función cognitiva?", decreto: "Favorecer la adaptación del organismo a la menopausia permitiendo mayor estabilidad, claridad mental y regulación neurocognitiva." }
+    ]
+  },
+
+  humor: {
+    icono: "🌊",
+    nombre: "Cambios de humor / Irritabilidad",
+    desc: "Labilidad emocional, irritabilidad, inestabilidad",
+    decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de CAMBIOS DE HUMOR E IRRITABILIDAD desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.",
+    pasos: [
+      { titulo: "Inestabilidad emocional hormonal", bloque: "Sistema hormonal", pregunta: "¿Existe inestabilidad emocional asociada a la fluctuación hormonal durante la menopausia?", decreto: "Regular la influencia hormonal sobre el estado emocional favoreciendo estabilidad, coherencia y equilibrio interno de forma permanente." },
+      { titulo: "Estrógenos (regulación emocional)", bloque: "Sistema hormonal", pregunta: "¿Existe disminución de la influencia estrogénica afectando la regulación emocional y la estabilidad del humor?", decreto: "Optimizar la adaptación del sistema emocional a la disminución estrogénica favoreciendo mayor estabilidad y coherencia interna." },
+      { titulo: "Progesterona (calma interna)", bloque: "Sistema hormonal", pregunta: "¿Existe descenso de progesterona reduciendo la capacidad del sistema de mantenerse calmado y estable?", decreto: "Compensar funcionalmente el descenso de progesterona favoreciendo calma, equilibrio y menor reactividad emocional." },
+      { titulo: "Cortisol y eje del estrés", bloque: "Sistema hormonal", pregunta: "¿Existe elevación o desregulación del cortisol manteniendo al sistema en estado de alerta emocional?", decreto: "Regular el cortisol favoreciendo menor reactividad, estabilidad emocional y mayor capacidad de respuesta equilibrada." },
+      { titulo: "Sistema nervioso autónomo", bloque: "Sistema nervioso", pregunta: "¿Existe desregulación del sistema nervioso autónomo amplificando la reactividad emocional?", decreto: "Regular el sistema nervioso autónomo favoreciendo mayor calma, menor reactividad y mejor integración emocional." },
+      { titulo: "Procesamiento emocional", bloque: "Bloque emocional", pregunta: "¿Existe dificultad en el procesamiento emocional generando acumulación y expresión reactiva?", decreto: "Favorecer el procesamiento y la integración emocional permitiendo mayor fluidez, expresión adecuada y estabilidad interna." },
+      { titulo: "Carga emocional acumulada", bloque: "Bloque emocional", pregunta: "¿Existe carga emocional acumulada expresándose como irritabilidad o cambios de humor bruscos?", decreto: "Liberar la carga emocional acumulada permitiendo mayor ligereza, estabilidad y coherencia en la expresión emocional." },
+      { titulo: "Tolerancia a la frustración", bloque: "Bloque emocional", pregunta: "¿Existe disminución de la tolerancia a la frustración amplificando la reactividad emocional?", decreto: "Restaurar la capacidad de tolerar la frustración favoreciendo mayor equilibrio y respuesta adecuada ante los estímulos." },
+      { titulo: "Hiperactividad mental", bloque: "Bloque mental", pregunta: "¿Existe hiperactividad mental sostenida interfiriendo en la estabilidad emocional y favoreciendo la reactividad?", decreto: "Reducir la hiperactividad mental favoreciendo calma, presencia y mayor estabilidad emocional." },
+      { titulo: "Seguridad interna", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna generando mayor vulnerabilidad e inestabilidad emocional?", decreto: "Restaurar la seguridad interna favoreciendo estabilidad, cohesión y mayor capacidad de regulación emocional." }
+    ]
+  },
+
+  ansiedad: {
+    icono: "💨",
+    nombre: "Ansiedad / Inquietud interna",
+    desc: "Nerviosismo, activación, angustia difusa",
+    decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de ANSIEDAD E INQUIETUD INTERNA desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.",
+    pasos: [
+      { titulo: "Sistema nervioso autónomo", bloque: "Sistema nervioso", pregunta: "¿Existe predominio del sistema simpático manteniendo al organismo en estado de activación o alerta?", decreto: "Regular el sistema nervioso autónomo favoreciendo el predominio parasimpático y un estado de calma, seguridad y estabilidad." },
+      { titulo: "Cortisol crónico", bloque: "Sistema nervioso", pregunta: "¿Existe elevación crónica del cortisol manteniendo la activación del sistema y alimentando la ansiedad?", decreto: "Regular el cortisol permitiendo la desactivación del estado de alerta y la recuperación de la calma interna." },
+      { titulo: "Adrenalina y activación", bloque: "Sistema nervioso", pregunta: "¿Existe activación adrenérgica mantenida generando sensación de nerviosismo, inquietud o activación interna?", decreto: "Reducir la activación adrenérgica permitiendo al sistema entrar en un estado de mayor calma y seguridad." },
+      { titulo: "Estrógenos y estabilidad emocional", bloque: "Sistema hormonal", pregunta: "¿Existe desestabilización del sistema emocional asociada al descenso estrogénico generando mayor vulnerabilidad a la ansiedad?", decreto: "Optimizar la adaptación del sistema a los cambios estrogénicos favoreciendo mayor estabilidad emocional y menor reactividad ansiosa." },
+      { titulo: "Progesterona (calma GABA)", bloque: "Sistema hormonal", pregunta: "¿Existe descenso de la influencia de la progesterona sobre el sistema GABAérgico reduciendo la calma interna?", decreto: "Compensar funcionalmente el descenso de progesterona favoreciendo la actividad GABAérgica y un estado de mayor calma y relajación." },
+      { titulo: "Respuesta de estrés", bloque: "Sistema hormonal", pregunta: "¿Existe hiperactivación del eje de respuesta al estrés manteniendo al sistema en modo supervivencia?", decreto: "Regular el eje de respuesta al estrés favoreciendo la desactivación, la calma y la estabilidad interna." },
+      { titulo: "Estado de alerta mantenido", bloque: "Bloque emocional", pregunta: "¿Existe estado de alerta mantenido como patrón aprendido interfiriendo en la capacidad de relajarse?", decreto: "Desactivar el estado de alerta crónico permitiendo al sistema entrar en seguridad y descanso." },
+      { titulo: "Interpretación de amenaza", bloque: "Bloque emocional", pregunta: "¿Existe interpretación del entorno o del propio cuerpo como amenaza alimentando la respuesta ansiosa?", decreto: "Reprogramar la percepción de amenaza permitiendo interpretar el entorno y el cuerpo como seguros y manejables." },
+      { titulo: "Anticipación y preocupación", bloque: "Bloque mental", pregunta: "¿Existe patrón de anticipación o preocupación excesiva manteniendo la activación del sistema nervioso?", decreto: "Reducir el patrón de anticipación permitiendo mayor presencia, calma y confianza en el proceso." },
+      { titulo: "Necesidad de control", bloque: "Bloque mental", pregunta: "¿Existe necesidad de controlar lo que ocurre generando tensión y activación cuando no es posible?", decreto: "Soltar la necesidad de control permitiendo mayor flexibilidad, confianza y calma interna." },
+      { titulo: "Seguridad interna (núcleo)", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna como núcleo que sostiene la ansiedad y la activación del sistema?", decreto: "Restaurar la seguridad interna de forma profunda permitiendo al sistema relajarse, confiar y encontrar estabilidad." }
+    ]
+  },
+
+  fatiga: {
+    icono: "🌿",
+    nombre: "Fatiga / Cansancio persistente",
+    desc: "Agotamiento, falta de energía, bajo rendimiento",
+    decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de FATIGA O CANSANCIO PERSISTENTE desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.",
+    pasos: [
+      { titulo: "Producción de energía celular (mitocondrial)", bloque: "Sistema energético", pregunta: "¿Existe disminución en la producción de energía celular interfiriendo en la vitalidad y el rendimiento del organismo?", decreto: "Optimizar la función mitocondrial favoreciendo mayor producción de energía, vitalidad y rendimiento del sistema." },
+      { titulo: "Cortisol y eje suprarrenal", bloque: "Sistema energético", pregunta: "¿Existe disfunción del eje suprarrenal generando patrones de cortisol que favorecen el agotamiento?", decreto: "Regular el eje suprarrenal favoreciendo un patrón de cortisol más equilibrado y una mayor disponibilidad de energía." },
+      { titulo: "Tiroides (metabolismo energético)", bloque: "Sistema energético", pregunta: "¿Existe enlentecimiento funcional tiroideo reduciendo la disponibilidad energética del organismo?", decreto: "Optimizar la función tiroidea favoreciendo mayor actividad metabólica, energía disponible y reducción de la sensación de fatiga." },
+      { titulo: "Estrógenos y energía vital", bloque: "Sistema hormonal", pregunta: "¿Existe disminución de la influencia estrogénica afectando la energía, la vitalidad y el rendimiento?", decreto: "Optimizar la adaptación del organismo a la disminución estrogénica favoreciendo mayor energía, vitalidad y disponibilidad funcional." },
+      { titulo: "Suprarrenales (fatiga adrenal)", bloque: "Sistema hormonal", pregunta: "¿Existe agotamiento funcional suprarrenal contribuyendo al estado de fatiga persistente?", decreto: "Recuperar la función suprarrenal favoreciendo mayor energía, resistencia y capacidad de respuesta del sistema." },
+      { titulo: "Glucosa e insulina", bloque: "Sistema hormonal", pregunta: "¿Existe desregulación de la glucosa o la insulina interfiriendo en el suministro estable de energía al organismo?", decreto: "Regular la glucosa y la insulina favoreciendo un suministro energético estable y continuo." },
+      { titulo: "Sistema nervioso (fatiga por alerta)", bloque: "Sistema nervioso", pregunta: "¿Existe agotamiento del sistema nervioso por mantenerse en estado de activación o alerta sostenida?", decreto: "Regular el sistema nervioso favoreciendo descanso, recuperación y menor gasto energético por activación innecesaria." },
+      { titulo: "Calidad del descanso", bloque: "Sistema nervioso", pregunta: "¿Existe falta de descanso reparador contribuyendo a la fatiga acumulada?", decreto: "Favorecer el descanso reparador permitiendo recuperación real, restauración del sistema y mayor energía disponible." },
+      { titulo: "Sobrecarga acumulada", bloque: "Bloque emocional", pregunta: "¿Existe sobrecarga sostenida física, emocional o mental generando un estado de agotamiento profundo?", decreto: "Liberar la sobrecarga acumulada permitiendo recuperación, renovación y mayor disponibilidad energética." },
+      { titulo: "Apagamiento del sistema", bloque: "Bloque emocional", pregunta: "¿Existe apagamiento del sistema como respuesta protectora ante el agotamiento sostenido?", decreto: "Reactivar el sistema de forma gradual y segura permitiendo mayor energía, presencia y disponibilidad interna." },
+      { titulo: "Seguridad interna y recuperación", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna impidiendo que el sistema entre en recuperación real?", decreto: "Restaurar la seguridad interna permitiendo al sistema entrar en recuperación, descanso profundo y renovación." }
+    ]
+  },
+
+  articular: {
+    icono: "🦴",
+    nombre: "Dolores articulares y musculares",
+    desc: "Rigidez, dolor, tensión muscular",
+    decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de DOLORES ARTICULARES Y MUSCULARES desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.",
+    pasos: [
+      { titulo: "Inflamación sistémica de bajo grado", bloque: "Sistema físico", pregunta: "¿Existe inflamación sistémica de bajo grado contribuyendo al dolor articular o muscular?", decreto: "Reducir la inflamación sistémica favoreciendo menor dolor, mayor movilidad y mejor estado general del tejido." },
+      { titulo: "Estrógenos (lubricación articular)", bloque: "Sistema físico", pregunta: "¿Existe disminución de la influencia estrogénica afectando la lubricación articular y la integridad del tejido conectivo?", decreto: "Optimizar la adaptación del tejido articular y conectivo a la disminución estrogénica favoreciendo mayor lubricación, flexibilidad y bienestar." },
+      { titulo: "Cortisol (tensión muscular)", bloque: "Sistema físico", pregunta: "¿Existe elevación del cortisol generando tensión muscular mantenida y mayor sensibilidad al dolor?", decreto: "Regular el cortisol favoreciendo la relajación muscular, menor tensión y reducción de la sensibilidad dolorosa." },
+      { titulo: "Sistema nervioso (hipersensibilidad)", bloque: "Sistema físico", pregunta: "¿Existe hipersensibilidad del sistema nervioso amplificando la percepción del dolor articular o muscular?", decreto: "Regular la respuesta nociceptiva del sistema nervioso favoreciendo menor sensibilidad al dolor y mayor bienestar físico." },
+      { titulo: "Tiroides (metabolismo tisular)", bloque: "Sistema físico", pregunta: "¿Existe enlentecimiento funcional tiroideo afectando el metabolismo del tejido muscular y articular?", decreto: "Optimizar la función tiroidea favoreciendo mayor metabolismo tisular, recuperación y bienestar articular." },
+      { titulo: "Terreno inflamatorio", bloque: "Sistema físico", pregunta: "¿Existe terreno inflamatorio mantenido contribuyendo a la cronificación del dolor?", decreto: "Reducir el terreno inflamatorio favoreciendo equilibrio, menor dolor y mejor regeneración tisular." },
+      { titulo: "Tensión emocional sostenida", bloque: "Bloque emocional", pregunta: "¿Existe tensión emocional sostenida expresándose como rigidez o dolor muscular?", decreto: "Liberar la tensión emocional acumulada permitiendo relajación muscular, soltura y mayor bienestar físico." },
+      { titulo: "Carga acumulada no procesada", bloque: "Bloque emocional", pregunta: "¿Existe carga emocional no procesada sosteniendo la tensión o el dolor en el cuerpo?", decreto: "Liberar la carga emocional no procesada permitiendo al cuerpo soltar, relajarse y recuperar bienestar." },
+      { titulo: "Seguridad interna y relajación", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna manteniendo la tensión corporal y contribuyendo al dolor?", decreto: "Restaurar la seguridad interna permitiendo al cuerpo relajarse, soltarse y recuperar su estado natural de bienestar." }
+    ]
+  },
+
+  apatia: {
+    icono: "🕯️",
+    nombre: "Apatía / Falta de motivación",
+    desc: "Desinterés, falta de impulso vital, desconexión",
+    decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de APATÍA O FALTA DE MOTIVACIÓN desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma de apatía o falta de motivación. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.",
+    pasos: [
+      { titulo: "Motivación y activación", bloque: "Sistema dopaminérgico", pregunta: "¿Existe disminución de la motivación interfiriendo en la activación, el interés y la iniciativa durante la menopausia?", decreto: "Restaurar la motivación favoreciendo impulso, interés, iniciativa y conexión con la acción." },
+      { titulo: "Dopamina y sistema de recompensa", bloque: "Sistema dopaminérgico", pregunta: "¿Existe desregulación dopaminérgica afectando la capacidad de activación, interés, placer o motivación?", decreto: "Regular la actividad dopaminérgica favoreciendo motivación, impulso interno, interés y conexión con la acción." },
+      { titulo: "Energía vital y disponibilidad", bloque: "Sistema dopaminérgico", pregunta: "¿Existe disminución de la energía disponible interfiriendo en la capacidad del sistema para movilizarse y sostener iniciativa?", decreto: "Favorecer la energía vital permitiendo mayor activación, presencia, disponibilidad y capacidad de acción." },
+      { titulo: "Conexión emocional", bloque: "Bloque emocional", pregunta: "¿Existe desconexión emocional interfiriendo en el interés, la implicación o la motivación?", decreto: "Restaurar la conexión emocional favoreciendo implicación interna, sentido y capacidad de movilización." },
+      { titulo: "Apagamiento del sistema", bloque: "Bloque emocional", pregunta: "¿Existe apagamiento del sistema como respuesta a sobrecarga sostenida o agotamiento interno?", decreto: "Reducir el apagamiento del sistema favoreciendo recuperación, reactivación y mayor disponibilidad interna." },
+      { titulo: "Sistema nervioso y estado de activación", bloque: "Sistema nervioso", pregunta: "¿Existe desregulación del sistema nervioso interfiriendo en la capacidad de activación, interés y respuesta del organismo?", decreto: "Regular el sistema nervioso favoreciendo equilibrio, activación adecuada y capacidad de respuesta." },
+      { titulo: "Hormonas (estrógenos y testosterona)", bloque: "Sistema hormonal", pregunta: "¿Existe disminución de la influencia hormonal, especialmente estrogénica o androgénica, afectando la motivación y la activación?", decreto: "Optimizar la adaptación hormonal favoreciendo energía, impulso, interés y capacidad de acción." },
+      { titulo: "Energía celular (mitocondrial)", bloque: "Sistema hormonal", pregunta: "¿Existe disminución en la producción de energía celular interfiriendo en la sensación de impulso y vitalidad?", decreto: "Optimizar la función mitocondrial favoreciendo energía, activación y rendimiento del organismo." },
+      { titulo: "Sentido y dirección interna", bloque: "Bloque profundo", pregunta: "¿Existe falta de sentido, dirección o propósito interfiriendo en la motivación y la implicación?", decreto: "Restaurar el sentido interno favoreciendo dirección, coherencia y motivación para la acción." },
+      { titulo: "Sobrecarga y saturación", bloque: "Bloque profundo", pregunta: "¿Existe saturación interna o exceso de exigencia interfiriendo en la capacidad del sistema para activarse?", decreto: "Reducir la saturación favoreciendo espacio interno, claridad y disponibilidad para la acción." },
+      { titulo: "Inflamación y estado general", bloque: "Bloque profundo", pregunta: "¿Existe estado inflamatorio funcional interfiriendo en la energía, el estado de ánimo o la motivación?", decreto: "Reducir la inflamación favoreciendo bienestar, energía y mejor disposición interna." },
+      { titulo: "Seguridad interna y expresión", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna interfiriendo en la capacidad de expresarse, actuar o implicarse?", decreto: "Restaurar la seguridad interna favoreciendo confianza, acción y conexión con la propia iniciativa." },
+      { titulo: "Adaptación a la menopausia", bloque: "Bloque profundo", pregunta: "¿Existe dificultad en la adaptación del sistema a los cambios de la menopausia afectando la motivación y el impulso vital?", decreto: "Favorecer la adaptación del organismo a la menopausia permitiendo mayor estabilidad, activación y coherencia interna." }
+    ]
+  }
 };
 
-let estado = { fase: 'selector', sintoma: null, pasoInicio: 0, pasoProtocolo: 0, respuestas: {} };
+// ═══════════════════════════════════════════════════
+//  ESTADO
+// ═══════════════════════════════════════════════════
+let estado = {
+  fase: 'selector', // selector | inicio | protocolo | completado
+  sintoma: null,
+  pasoInicio: 0,
+  pasoProtocolo: 0,
+  respuestas: {}
+};
 
-function reiniciar() { estado = { fase: 'selector', sintoma: null, pasoInicio: 0, pasoProtocolo: 0, respuestas: {} }; render(); }
+function reiniciar() {
+  estado = { fase: 'selector', sintoma: null, pasoInicio: 0, pasoProtocolo: 0, respuestas: {} };
+  render();
+}
 
+// ═══════════════════════════════════════════════════
+//  RENDER PRINCIPAL
+// ═══════════════════════════════════════════════════
 function render() {
   const app = document.getElementById('app');
   if (estado.fase === 'selector') app.innerHTML = renderSelector();
@@ -399,29 +693,117 @@ function render() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+// ═══════════════════════════════════════════════════
+//  FASE 1: SELECTOR DE SÍNTOMA
+// ═══════════════════════════════════════════════════
 function renderSelector() {
-  const cards = Object.entries(SINTOMAS).map(([key, s]) => `<button class="card-sintoma" onclick="seleccionarSintoma('${key}')"><span class="icono">${s.icono}</span><span class="nombre">${s.nombre}</span><span class="desc">${s.desc}</span></button>`).join('');
-  return `<div class="selector-wrap"><h1 class="titulo-seccion">¿Con qué síntoma vas a trabajar hoy?</h1><p class="subtitulo">Selecciona el síntoma prioritario para esta sesión</p><div class="grid-sintomas">${cards}</div><div class="nota-pendiente">⚠️ <span>El <strong>Módulo 6.1</strong> (Salud sexual y vaginal) está pendiente de recibir. Se añadirá cuando esté disponible.</span></div></div>`;
+  const cards = Object.entries(SINTOMAS).map(([key, s]) => `
+    <button class="card-sintoma" onclick="seleccionarSintoma('${key}')">
+      <span class="icono">${s.icono}</span>
+      <span class="nombre">${s.nombre}</span>
+      <span class="desc">${s.desc}</span>
+    </button>
+  `).join('');
+
+  return `
+    <div class="selector-wrap">
+      <h1 class="titulo-seccion">¿Con qué síntoma vas a trabajar hoy?</h1>
+      <p class="subtitulo">Selecciona el síntoma prioritario para esta sesión</p>
+      <div class="grid-sintomas">${cards}</div>
+      <div class="nota-pendiente">
+        ⚠️ <span>El <strong>Módulo 6.1</strong> (Salud sexual y vaginal) está pendiente de recibir. Se añadirá cuando esté disponible.</span>
+      </div>
+    </div>
+  `;
 }
 
-function seleccionarSintoma(key) { estado.sintoma = key; estado.fase = 'inicio'; estado.pasoInicio = 0; render(); }
+function seleccionarSintoma(key) {
+  estado.sintoma = key;
+  estado.fase = 'inicio';
+  estado.pasoInicio = 0;
+  render();
+}
 
+// ═══════════════════════════════════════════════════
+//  FASE 2: PROTOCOLO DE INICIO
+// ═══════════════════════════════════════════════════
 function renderInicio() {
   const paso = PROTOCOLO_INICIO[estado.pasoInicio];
   const sintoma = SINTOMAS[estado.sintoma];
   const total = PROTOCOLO_INICIO.length;
   const pct = Math.round((estado.pasoInicio / total) * 100);
-  const resp = estado.respuestas[`inicio_${estado.pasoInicio}`];
-  return `<div class="inicio-wrap"><div class="nav-protocolo"><button class="btn-volver" onclick="reiniciar()">← Síntomas</button><span class="sintoma-badge">${sintoma.icono} ${sintoma.nombre}</span></div><div class="aviso-inicio">Protocolo de inicio · Realiza siempre estos 4 pasos antes de trabajar el síntoma</div><div class="barra-progreso-wrap"><div class="progreso-label"><span>INICIO — Paso ${estado.pasoInicio + 1} de ${total}</span><span>${pct}%</span></div><div class="barra"><div class="barra-fill" style="width:${pct}%"></div></div></div><div class="paso-wrap"><div class="paso-numero">Paso ${paso.numero}</div><div class="paso-titulo">${paso.titulo}</div><div class="bloque"><div class="bloque-label">Pregunta</div><div class="pregunta-texto">${paso.pregunta}</div></div><div class="botones-respuesta"><button class="btn-si ${resp==='si'?'activo':''}" onclick="responderInicio('si')">✓ Sí (corregir)</button><button class="btn-no ${resp==='no'?'activo':''}" onclick="responderInicio('no')">No está activo</button></div><div class="decreto-contenedor ${resp==='si'?'visible':''}"><div class="decreto-label">Decreto</div><div class="decreto-texto">"${paso.decreto}"</div></div><button class="btn-siguiente" onclick="siguienteInicio()" ${!resp?'disabled':''}>${estado.pasoInicio < total-1 ? 'Siguiente →' : 'Iniciar protocolo →'}</button></div></div>`;
+  const respondido = estado.respuestas[`inicio_${estado.pasoInicio}`];
+  const resp = respondido;
+
+  return `
+    <div class="inicio-wrap">
+      <div class="nav-protocolo">
+        <button class="btn-volver" onclick="reiniciar()">← Síntomas</button>
+        <span class="sintoma-badge">${sintoma.icono} ${sintoma.nombre}</span>
+      </div>
+
+      <div class="aviso-inicio">
+        Protocolo de inicio · Realiza siempre estos 4 pasos antes de trabajar el síntoma
+      </div>
+
+      <div class="barra-progreso-wrap">
+        <div class="progreso-label">
+          <span>INICIO — Paso ${estado.pasoInicio + 1} de ${total}</span>
+          <span>${pct}%</span>
+        </div>
+        <div class="barra"><div class="barra-fill" style="width:${pct}%"></div></div>
+      </div>
+
+      <div class="paso-wrap">
+        <div class="paso-numero">Paso ${paso.numero}</div>
+        <div class="paso-titulo">${paso.titulo}</div>
+
+        <div class="bloque">
+          <div class="bloque-label">Pregunta</div>
+          <div class="pregunta-texto">${paso.pregunta}</div>
+        </div>
+
+        <div class="botones-respuesta">
+          <button class="btn-no ${resp === 'no' ? 'activo' : ''}" onclick="responderInicio('no')">
+            ✓ SÍ — está bien
+          </button>
+          <button class="btn-si ${resp === 'si' ? 'activo' : ''}" onclick="responderInicio('si')">
+            NO — aplicar decreto
+          </button>
+        </div>
+
+        <div class="decreto-contenedor ${resp === 'si' ? 'visible' : ''}" id="decreto-inicio">
+          <div class="decreto-label">Decreto</div>
+          <div class="decreto-texto">"${paso.decreto}"</div>
+        </div>
+
+        <button class="btn-siguiente" onclick="siguienteInicio()" ${!resp ? 'disabled' : ''}>
+          ${estado.pasoInicio < total - 1 ? 'Siguiente →' : 'Iniciar protocolo →'}
+        </button>
+      </div>
+    </div>
+  `;
 }
 
-function responderInicio(resp) { estado.respuestas[`inicio_${estado.pasoInicio}`] = resp; render(); }
+function responderInicio(resp) {
+  estado.respuestas[`inicio_${estado.pasoInicio}`] = resp;
+  render();
+}
 
 function siguienteInicio() {
-  if (estado.pasoInicio < PROTOCOLO_INICIO.length - 1) { estado.pasoInicio++; render(); }
-  else { estado.fase = 'protocolo'; estado.pasoProtocolo = 0; render(); }
+  if (estado.pasoInicio < PROTOCOLO_INICIO.length - 1) {
+    estado.pasoInicio++;
+    render();
+  } else {
+    estado.fase = 'protocolo';
+    estado.pasoProtocolo = 0;
+    render();
+  }
 }
 
+// ═══════════════════════════════════════════════════
+//  FASE 3: PROTOCOLO DEL SÍNTOMA
+// ═══════════════════════════════════════════════════
 function renderProtocolo() {
   const sintoma = SINTOMAS[estado.sintoma];
   const pasos = sintoma.pasos;
@@ -430,28 +812,105 @@ function renderProtocolo() {
   const pct = Math.round(((estado.pasoProtocolo + 1) / (total + 1)) * 100);
   const esUltimo = estado.pasoProtocolo === total - 1;
   const resp = estado.respuestas[`proto_${estado.pasoProtocolo}`];
+
+  // Detectar cambio de bloque para mostrar separador
   const bloqueActual = paso.bloque;
   const bloquePrev = estado.pasoProtocolo > 0 ? pasos[estado.pasoProtocolo - 1].bloque : null;
   const nuevoBloqueTag = bloqueActual !== bloquePrev ? `<div class="tag-bloque">${bloqueActual}</div>` : '';
-  return `<div class="protocolo-wrap"><div class="nav-protocolo"><button class="btn-volver" onclick="volverAlSelector()">← Síntomas</button><span class="sintoma-badge">${sintoma.icono} ${sintoma.nombre}</span></div><div class="barra-progreso-wrap"><div class="progreso-label"><span>Punto ${estado.pasoProtocolo + 1} de ${total}</span><span>${pct}%</span></div><div class="barra"><div class="barra-fill" style="width:${pct}%"></div></div></div><div class="paso-wrap">${nuevoBloqueTag}<div class="paso-numero">Punto ${estado.pasoProtocolo + 1}</div><div class="paso-titulo">${paso.titulo}</div><div class="bloque"><div class="bloque-label">Pregunta Origen</div><div class="pregunta-texto">${paso.pregunta}</div></div><div class="botones-respuesta"><button class="btn-si ${resp==='si'?'activo':''}" onclick="responderProtocolo('si')">✓ Sí (aplicar decreto)</button><button class="btn-no ${resp==='no'?'activo':''}" onclick="responderProtocolo('no')">No está activo</button></div><div class="decreto-contenedor ${resp==='si'?'visible':''}"><div class="decreto-label">Decreto Origen</div><div class="decreto-texto">"${paso.decreto}"</div></div><button class="btn-siguiente" onclick="siguienteProtocolo()" ${!resp?'disabled':''}>${esUltimo ? 'Decreto general de cierre →' : 'Siguiente →'}</button></div></div>`;
+
+  return `
+    <div class="protocolo-wrap">
+      <div class="nav-protocolo">
+        <button class="btn-volver" onclick="volverAlSelector()">← Síntomas</button>
+        <span class="sintoma-badge">${sintoma.icono} ${sintoma.nombre}</span>
+      </div>
+
+      <div class="barra-progreso-wrap">
+        <div class="progreso-label">
+          <span>Punto ${estado.pasoProtocolo + 1} de ${total}</span>
+          <span>${pct}%</span>
+        </div>
+        <div class="barra"><div class="barra-fill" style="width:${pct}%"></div></div>
+      </div>
+
+      <div class="paso-wrap">
+        ${nuevoBloqueTag}
+        <div class="paso-numero">Punto ${estado.pasoProtocolo + 1}</div>
+        <div class="paso-titulo">${paso.titulo}</div>
+
+        <div class="bloque">
+          <div class="bloque-label">Pregunta Origen</div>
+          <div class="pregunta-texto">${paso.pregunta}</div>
+        </div>
+
+        <div class="botones-respuesta">
+          <button class="btn-no ${resp === 'no' ? 'activo' : ''}" onclick="responderProtocolo('no')">
+            ✓ SÍ — está bien
+          </button>
+          <button class="btn-si ${resp === 'si' ? 'activo' : ''}" onclick="responderProtocolo('si')">
+            NO — aplicar decreto
+          </button>
+        </div>
+
+        <div class="decreto-contenedor ${resp === 'si' ? 'visible' : ''}">
+          <div class="decreto-label">Decreto Origen</div>
+          <div class="decreto-texto">"${paso.decreto}"</div>
+        </div>
+
+        <button class="btn-siguiente" onclick="siguienteProtocolo()" ${!resp ? 'disabled' : ''}>
+          ${esUltimo ? 'Decreto general de cierre →' : 'Siguiente →'}
+        </button>
+      </div>
+    </div>
+  `;
 }
 
-function responderProtocolo(resp) { estado.respuestas[`proto_${estado.pasoProtocolo}`] = resp; render(); }
+function responderProtocolo(resp) {
+  estado.respuestas[`proto_${estado.pasoProtocolo}`] = resp;
+  render();
+}
 
 function siguienteProtocolo() {
   const total = SINTOMAS[estado.sintoma].pasos.length;
-  if (estado.pasoProtocolo < total - 1) { estado.pasoProtocolo++; render(); }
-  else { estado.fase = 'completado'; render(); }
+  if (estado.pasoProtocolo < total - 1) {
+    estado.pasoProtocolo++;
+    render();
+  } else {
+    estado.fase = 'completado';
+    render();
+  }
 }
 
-function volverAlSelector() { estado = { fase: 'selector', sintoma: null, pasoInicio: 0, pasoProtocolo: 0, respuestas: {} }; render(); }
+function volverAlSelector() {
+  estado = { fase: 'selector', sintoma: null, pasoInicio: 0, pasoProtocolo: 0, respuestas: {} };
+  render();
+}
 
+// ═══════════════════════════════════════════════════
+//  FASE 4: COMPLETADO + DECRETO FINAL
+// ═══════════════════════════════════════════════════
 function renderCompletado() {
   const sintoma = SINTOMAS[estado.sintoma];
   const totalSi = Object.values(estado.respuestas).filter(r => r === 'si').length;
-  return `<div class="completado"><div class="icono">✨</div><h2>Protocolo completado</h2><p>${sintoma.icono} ${sintoma.nombre} · ${totalSi} puntos corregidos</p><div class="decreto-general"><div class="titulo">Decreto general de corrección directa</div><div class="texto">"${sintoma.decretoFinal}"</div></div><br><button class="btn-nuevo-sintoma" onclick="reiniciar()">← Trabajar otro síntoma</button></div>`;
+
+  return `
+    <div class="completado">
+      <div class="icono">✨</div>
+      <h2>Protocolo completado</h2>
+      <p>${sintoma.icono} ${sintoma.nombre} · ${totalSi} puntos corregidos</p>
+
+      <div class="decreto-general">
+        <div class="titulo">Decreto general de corrección directa</div>
+        <div class="texto">"${sintoma.decretoFinal}"</div>
+      </div>
+
+      <br>
+      <button class="btn-nuevo-sintoma" onclick="reiniciar()">← Trabajar otro síntoma</button>
+    </div>
+  `;
 }
 
+// INICIO
 render();
 </script>
 </body>
