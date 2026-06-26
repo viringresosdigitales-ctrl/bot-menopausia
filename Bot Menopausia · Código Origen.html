@@ -4,9 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bot Menopausia · Código Origen</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230a0a0a'/%3E%3Cellipse cx='50' cy='32' rx='7' ry='14' fill='none' stroke='%23C9A84C' stroke-width='1.5' opacity='0.9'/%3E%3Cellipse cx='50' cy='32' rx='7' ry='14' fill='none' stroke='%23C9A84C' stroke-width='1.5' opacity='0.9' transform='rotate(45 50 50)'/%3E%3Cellipse cx='50' cy='32' rx='7' ry='14' fill='none' stroke='%23C9A84C' stroke-width='1.5' opacity='0.9' transform='rotate(90 50 50)'/%3E%3Cellipse cx='50' cy='32' rx='7' ry='14' fill='none' stroke='%23C9A84C' stroke-width='1.5' opacity='0.9' transform='rotate(135 50 50)'/%3E%3Ccircle cx='50' cy='50' r='6' fill='%23C9A84C' opacity='0.95'/%3E%3Ccircle cx='50' cy='50' r='3' fill='%230a0a0a'/%3E%3C/svg%3E">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Bot Menopausia">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%230a0a0a'/%3E%3Cellipse cx='50' cy='32' rx='7' ry='14' fill='none' stroke='%23C9A84C' stroke-width='1.5' opacity='0.9'/%3E%3Cellipse cx='50' cy='32' rx='7' ry='14' fill='none' stroke='%23C9A84C' stroke-width='1.5' opacity='0.9' transform='rotate(45 50 50)'/%3E%3Cellipse cx='50' cy='32' rx='7' ry='14' fill='none' stroke='%23C9A84C' stroke-width='1.5' opacity='0.9' transform='rotate(90 50 50)'/%3E%3Cellipse cx='50' cy='32' rx='7' ry='14' fill='none' stroke='%23C9A84C' stroke-width='1.5' opacity='0.9' transform='rotate(135 50 50)'/%3E%3Ccircle cx='50' cy='50' r='6' fill='%23C9A84C' opacity='0.95'/%3E%3Ccircle cx='50' cy='50' r='3' fill='%230a0a0a'/%3E%3C/svg%3E">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap');
- 
+
   :root {
     --negro: #0a0a0a;
     --dorado: #C9A84C;
@@ -18,9 +22,9 @@
     --texto: #e8e0d0;
     --texto-suave: #9a9080;
   }
- 
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
- 
+
   body {
     background: var(--negro);
     color: var(--texto);
@@ -30,7 +34,7 @@
     font-size: 15px;
     line-height: 1.7;
   }
- 
+
   /* HEADER */
   .header {
     border-bottom: 1px solid var(--gris-borde);
@@ -52,7 +56,7 @@
     text-transform: uppercase;
   }
   .logo span { color: var(--texto-suave); font-size: 13px; display: block; letter-spacing: 0.08em; }
- 
+
   .btn-reiniciar {
     background: none;
     border: 1px solid var(--gris-borde);
@@ -66,10 +70,10 @@
     font-family: 'Inter', sans-serif;
   }
   .btn-reiniciar:hover { border-color: var(--dorado); color: var(--dorado); }
- 
+
   /* MAIN */
   .main { max-width: 720px; margin: 0 auto; padding: 32px 24px 80px; }
- 
+
   /* FASE SELECTOR SÍNTOMA */
   .selector-wrap { animation: fadeIn 0.4s ease; }
   .titulo-seccion {
@@ -86,7 +90,7 @@
     margin-bottom: 32px;
     letter-spacing: 0.03em;
   }
- 
+
   .grid-sintomas {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -94,7 +98,7 @@
     margin-bottom: 24px;
   }
   @media (max-width: 500px) { .grid-sintomas { grid-template-columns: 1fr; } }
- 
+
   .card-sintoma {
     background: var(--gris-oscuro);
     border: 1px solid var(--gris-borde);
@@ -118,10 +122,10 @@
     margin-bottom: 4px;
   }
   .card-sintoma .desc { font-size: 12px; color: var(--texto-suave); }
- 
+
   /* PROTOCOLO */
   .protocolo-wrap { animation: fadeIn 0.4s ease; }
- 
+
   .nav-protocolo {
     display: flex;
     align-items: center;
@@ -141,14 +145,14 @@
     font-family: 'Inter', sans-serif;
   }
   .btn-volver:hover { border-color: var(--dorado-oscuro); color: var(--dorado); }
- 
+
   .sintoma-badge {
     font-family: 'Cormorant Garamond', serif;
     font-size: 15px;
     color: var(--dorado);
     letter-spacing: 0.06em;
   }
- 
+
   /* PROGRESO */
   .barra-progreso-wrap { margin-bottom: 32px; }
   .progreso-label {
@@ -171,10 +175,10 @@
     transition: width 0.4s ease;
     border-radius: 2px;
   }
- 
+
   /* PASO */
   .paso-wrap { animation: slideUp 0.35s ease; }
- 
+
   .paso-numero {
     font-size: 11px;
     color: var(--dorado-oscuro);
@@ -190,7 +194,7 @@
     margin-bottom: 20px;
     line-height: 1.3;
   }
- 
+
   /* PREGUNTA */
   .bloque {
     background: var(--gris-oscuro);
@@ -214,7 +218,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: 18px;
   }
- 
+
   /* DECRETO */
   .decreto-contenedor {
     background: #14120a;
@@ -239,7 +243,7 @@
     line-height: 1.7;
     font-style: italic;
   }
- 
+
   /* BOTONES RESPUESTA */
   .botones-respuesta {
     display: flex;
@@ -265,7 +269,7 @@
   }
   .btn-si:hover { background: #2a2200; border-color: var(--dorado); }
   .btn-si.activo { background: var(--dorado-oscuro); color: #fff; border-color: var(--dorado); }
- 
+
   .btn-no {
     background: var(--gris-medio);
     border: 1px solid var(--gris-borde);
@@ -273,7 +277,7 @@
   }
   .btn-no:hover { border-color: #555; color: var(--texto); }
   .btn-no.activo { background: #2a2a2a; border-color: #666; color: var(--texto); }
- 
+
   .btn-siguiente {
     background: var(--dorado);
     color: var(--negro);
@@ -284,7 +288,7 @@
   }
   .btn-siguiente:hover { background: var(--dorado-claro); }
   .btn-siguiente:disabled { opacity: 0.3; cursor: not-allowed; }
- 
+
   /* CIERRE PROTOCOLO */
   .decreto-general {
     background: #0f0d06;
@@ -307,7 +311,7 @@
     line-height: 1.8;
     font-style: italic;
   }
- 
+
   /* INICIO — PROTOCOLO PREVIO */
   .inicio-wrap { animation: fadeIn 0.4s ease; }
   .aviso-inicio {
@@ -319,7 +323,7 @@
     font-size: 13px;
     color: var(--texto-suave);
   }
- 
+
   /* COMPLETADO */
   .completado {
     text-align: center;
@@ -335,7 +339,7 @@
     margin-bottom: 10px;
   }
   .completado p { color: var(--texto-suave); font-size: 13px; margin-bottom: 28px; }
- 
+
   .btn-nuevo-sintoma {
     background: var(--dorado);
     color: var(--negro);
@@ -350,7 +354,7 @@
     margin-right: 10px;
   }
   .btn-nuevo-sintoma:hover { background: var(--dorado-claro); }
- 
+
   /* NOTA 6.1 */
   .nota-pendiente {
     background: #1a1200;
@@ -364,17 +368,17 @@
     gap: 10px;
     align-items: flex-start;
   }
- 
+
   @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   @keyframes slideUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
- 
+
   /* Divisor */
   .divisor {
     border: none;
     border-top: 1px solid var(--gris-borde);
     margin: 20px 0;
   }
- 
+
   .tag-bloque {
     display: inline-block;
     font-size: 10px;
@@ -390,7 +394,7 @@
 </style>
 </head>
 <body>
- 
+
 <div class="header">
   <div class="logo">
     Código Origen
@@ -398,14 +402,14 @@
   </div>
   <button class="btn-reiniciar" onclick="reiniciar()">↺ Reiniciar</button>
 </div>
- 
+
 <div class="main" id="app"></div>
- 
+
 <script>
 // ═══════════════════════════════════════════════════
 //  DATOS COMPLETOS DE PROTOCOLO
 // ═══════════════════════════════════════════════════
- 
+
 const PROTOCOLO_INICIO = [
   {
     numero: 1,
@@ -432,7 +436,7 @@ const PROTOCOLO_INICIO = [
     decreto: "En conexión con mi Yo Superior y en nombre de la Fuente, enviar toda entidad o conciencia no perteneciente a este campo por agujero de gusano a su lugar correcto, donde pertenece y no puede regresar. Hecho está."
   }
 ];
- 
+
 const SINTOMAS = {
   sofocos: {
     icono: "🔥",
@@ -459,7 +463,7 @@ const SINTOMAS = {
       { titulo: "Pérdida de seguridad interna", bloque: "Bloque profundo", pregunta: "¿Existe pérdida de seguridad interna activando y manteniendo la respuesta de sofocos durante la menopausia?", decreto: "Restaurar la sensación de seguridad interna, confianza corporal y estabilidad profunda del sistema durante la menopausia de forma permanente." }
     ]
   },
- 
+
   insomnio: {
     icono: "🌙",
     nombre: "Insomnio",
@@ -485,7 +489,7 @@ const SINTOMAS = {
       { titulo: "Seguridad interna (núcleo)", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna impidiendo la desconexión del sistema?", decreto: "Restaurar la seguridad interna permitiendo descanso profundo y estable." }
     ]
   },
- 
+
   peso: {
     icono: "⚖️",
     nombre: "Aumento de peso / Hinchazón",
@@ -511,12 +515,12 @@ const SINTOMAS = {
       { titulo: "Seguridad interna", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna manteniendo el estado de acumulación?", decreto: "Restaurar la seguridad interna permitiendo al cuerpo soltar la acumulación." }
     ]
   },
- 
+
   libido: {
     icono: "🌹",
     nombre: "Falta de libido",
     desc: "Disminución del deseo, sequedad vaginal, desconexión",
-    decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de FALTA DE LIBIDO desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia que activan la sanación o corrección completa, inmediata y definitiva de este síntoma. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.",
+    decretoFinal: "En conexión con mi Yo Superior y en nombre de la Fuente, desinstalar y descodificar todo código físico, emocional o mental que sostiene el síntoma de FALTA DE LIBIDO desde su punto de origen. Anular toda su información de raíz en toda la historia, en todas las dimensiones, en todos los planos, conciencia y vidas paralelas y reemplazarla por códigos nuevos de neutralidad y coherencia (y si se te viene algo a la cabeza ponlo) que activan la sanación o corrección completa, inmediata y definitiva de este síntoma de falta de libido. Todo su ser queda restablecido, equilibrado y en plena coherencia al 100% con potencial infinito. Hecho está.",
     pasos: [
       { titulo: "Estrógenos (respuesta y sensibilidad)", bloque: "Bloque hormonal", pregunta: "¿Existe descenso de estrógenos interfiriendo en la sensibilidad, la lubricación y la respuesta sexual?", decreto: "Optimizar la función estrogénica favoreciendo la sensibilidad, la lubricación y la respuesta corporal de forma equilibrada." },
       { titulo: "Progesterona (relajación y apertura)", bloque: "Bloque hormonal", pregunta: "¿Existe disminución de progesterona interfiriendo en la relajación del sistema y la capacidad de apertura al deseo?", decreto: "Compensar funcionalmente la progesterona favoreciendo un estado de calma, receptividad y apertura corporal." },
@@ -538,7 +542,7 @@ const SINTOMAS = {
       { titulo: "Seguridad interna", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna impidiendo la apertura al deseo?", decreto: "Restaurar la seguridad interna permitiendo al cuerpo abrirse, sentir y sostener el deseo." }
     ]
   },
- 
+
   niebla: {
     icono: "🧠",
     nombre: "Niebla mental",
@@ -560,7 +564,7 @@ const SINTOMAS = {
       { titulo: "Adaptación a la menopausia", bloque: "Bloque profundo", pregunta: "¿Existe dificultad en la adaptación del sistema a los cambios hormonales de la menopausia afectando la función cognitiva?", decreto: "Favorecer la adaptación del organismo a la menopausia permitiendo mayor estabilidad, claridad mental y regulación neurocognitiva." }
     ]
   },
- 
+
   humor: {
     icono: "🌊",
     nombre: "Cambios de humor / Irritabilidad",
@@ -579,7 +583,7 @@ const SINTOMAS = {
       { titulo: "Seguridad interna", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna generando mayor vulnerabilidad e inestabilidad emocional?", decreto: "Restaurar la seguridad interna favoreciendo estabilidad, cohesión y mayor capacidad de regulación emocional." }
     ]
   },
- 
+
   ansiedad: {
     icono: "💨",
     nombre: "Ansiedad / Inquietud interna",
@@ -599,7 +603,7 @@ const SINTOMAS = {
       { titulo: "Seguridad interna (núcleo)", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna como núcleo que sostiene la ansiedad y la activación del sistema?", decreto: "Restaurar la seguridad interna de forma profunda permitiendo al sistema relajarse, confiar y encontrar estabilidad." }
     ]
   },
- 
+
   fatiga: {
     icono: "🌿",
     nombre: "Fatiga / Cansancio persistente",
@@ -619,7 +623,7 @@ const SINTOMAS = {
       { titulo: "Seguridad interna y recuperación", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna impidiendo que el sistema entre en recuperación real?", decreto: "Restaurar la seguridad interna permitiendo al sistema entrar en recuperación, descanso profundo y renovación." }
     ]
   },
- 
+
   articular: {
     icono: "🦴",
     nombre: "Dolores articulares y musculares",
@@ -637,7 +641,7 @@ const SINTOMAS = {
       { titulo: "Seguridad interna y relajación", bloque: "Bloque profundo", pregunta: "¿Existe falta de seguridad interna manteniendo la tensión corporal y contribuyendo al dolor?", decreto: "Restaurar la seguridad interna permitiendo al cuerpo relajarse, soltarse y recuperar su estado natural de bienestar." }
     ]
   },
- 
+
   apatia: {
     icono: "🕯️",
     nombre: "Apatía / Falta de motivación",
@@ -660,7 +664,7 @@ const SINTOMAS = {
     ]
   }
 };
- 
+
 // ═══════════════════════════════════════════════════
 //  ESTADO
 // ═══════════════════════════════════════════════════
@@ -671,24 +675,24 @@ let estado = {
   pasoProtocolo: 0,
   respuestas: {}
 };
- 
+
 function reiniciar() {
   estado = { fase: 'selector', sintoma: null, pasoInicio: 0, pasoProtocolo: 0, respuestas: {} };
-  render();
+  render(true);
 }
- 
+
 // ═══════════════════════════════════════════════════
 //  RENDER PRINCIPAL
 // ═══════════════════════════════════════════════════
-function render() {
+function render(scrollTop = false) {
   const app = document.getElementById('app');
   if (estado.fase === 'selector') app.innerHTML = renderSelector();
   else if (estado.fase === 'inicio') app.innerHTML = renderInicio();
   else if (estado.fase === 'protocolo') app.innerHTML = renderProtocolo();
   else if (estado.fase === 'completado') app.innerHTML = renderCompletado();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (scrollTop) window.scrollTo({ top: 0, behavior: 'smooth' });
 }
- 
+
 // ═══════════════════════════════════════════════════
 //  FASE 1: SELECTOR DE SÍNTOMA
 // ═══════════════════════════════════════════════════
@@ -700,7 +704,7 @@ function renderSelector() {
       <span class="desc">${s.desc}</span>
     </button>
   `).join('');
- 
+
   return `
     <div class="selector-wrap">
       <h1 class="titulo-seccion">¿Con qué síntoma vas a trabajar hoy?</h1>
@@ -712,14 +716,14 @@ function renderSelector() {
     </div>
   `;
 }
- 
+
 function seleccionarSintoma(key) {
   estado.sintoma = key;
   estado.fase = 'inicio';
   estado.pasoInicio = 0;
   render();
 }
- 
+
 // ═══════════════════════════════════════════════════
 //  FASE 2: PROTOCOLO DE INICIO
 // ═══════════════════════════════════════════════════
@@ -730,18 +734,18 @@ function renderInicio() {
   const pct = Math.round((estado.pasoInicio / total) * 100);
   const respondido = estado.respuestas[`inicio_${estado.pasoInicio}`];
   const resp = respondido;
- 
+
   return `
     <div class="inicio-wrap">
       <div class="nav-protocolo">
         <button class="btn-volver" onclick="reiniciar()">← Síntomas</button>
         <span class="sintoma-badge">${sintoma.icono} ${sintoma.nombre}</span>
       </div>
- 
+
       <div class="aviso-inicio">
         Protocolo de inicio · Realiza siempre estos 4 pasos antes de trabajar el síntoma
       </div>
- 
+
       <div class="barra-progreso-wrap">
         <div class="progreso-label">
           <span>INICIO — Paso ${estado.pasoInicio + 1} de ${total}</span>
@@ -749,30 +753,30 @@ function renderInicio() {
         </div>
         <div class="barra"><div class="barra-fill" style="width:${pct}%"></div></div>
       </div>
- 
+
       <div class="paso-wrap">
         <div class="paso-numero">Paso ${paso.numero}</div>
         <div class="paso-titulo">${paso.titulo}</div>
- 
+
         <div class="bloque">
           <div class="bloque-label">Pregunta</div>
           <div class="pregunta-texto">${paso.pregunta}</div>
         </div>
- 
+
         <div class="botones-respuesta">
-          <button class="btn-si ${resp === 'si' ? 'activo' : ''}" onclick="responderInicio('si')">
-            ✓ Sí (corregir)
-          </button>
           <button class="btn-no ${resp === 'no' ? 'activo' : ''}" onclick="responderInicio('no')">
-            No está activo
+            ✓ SÍ — está bien
+          </button>
+          <button class="btn-si ${resp === 'si' ? 'activo' : ''}" onclick="responderInicio('si')">
+            NO — aplicar decreto
           </button>
         </div>
- 
+
         <div class="decreto-contenedor ${resp === 'si' ? 'visible' : ''}" id="decreto-inicio">
           <div class="decreto-label">Decreto</div>
           <div class="decreto-texto">"${paso.decreto}"</div>
         </div>
- 
+
         <button class="btn-siguiente" onclick="siguienteInicio()" ${!resp ? 'disabled' : ''}>
           ${estado.pasoInicio < total - 1 ? 'Siguiente →' : 'Iniciar protocolo →'}
         </button>
@@ -780,23 +784,23 @@ function renderInicio() {
     </div>
   `;
 }
- 
+
 function responderInicio(resp) {
   estado.respuestas[`inicio_${estado.pasoInicio}`] = resp;
-  render();
+  render(false);
 }
- 
+
 function siguienteInicio() {
   if (estado.pasoInicio < PROTOCOLO_INICIO.length - 1) {
     estado.pasoInicio++;
-    render();
+    render(true);
   } else {
     estado.fase = 'protocolo';
     estado.pasoProtocolo = 0;
-    render();
+    render(true);
   }
 }
- 
+
 // ═══════════════════════════════════════════════════
 //  FASE 3: PROTOCOLO DEL SÍNTOMA
 // ═══════════════════════════════════════════════════
@@ -808,19 +812,19 @@ function renderProtocolo() {
   const pct = Math.round(((estado.pasoProtocolo + 1) / (total + 1)) * 100);
   const esUltimo = estado.pasoProtocolo === total - 1;
   const resp = estado.respuestas[`proto_${estado.pasoProtocolo}`];
- 
+
   // Detectar cambio de bloque para mostrar separador
   const bloqueActual = paso.bloque;
   const bloquePrev = estado.pasoProtocolo > 0 ? pasos[estado.pasoProtocolo - 1].bloque : null;
   const nuevoBloqueTag = bloqueActual !== bloquePrev ? `<div class="tag-bloque">${bloqueActual}</div>` : '';
- 
+
   return `
     <div class="protocolo-wrap">
       <div class="nav-protocolo">
         <button class="btn-volver" onclick="volverAlSelector()">← Síntomas</button>
         <span class="sintoma-badge">${sintoma.icono} ${sintoma.nombre}</span>
       </div>
- 
+
       <div class="barra-progreso-wrap">
         <div class="progreso-label">
           <span>Punto ${estado.pasoProtocolo + 1} de ${total}</span>
@@ -828,31 +832,31 @@ function renderProtocolo() {
         </div>
         <div class="barra"><div class="barra-fill" style="width:${pct}%"></div></div>
       </div>
- 
+
       <div class="paso-wrap">
         ${nuevoBloqueTag}
         <div class="paso-numero">Punto ${estado.pasoProtocolo + 1}</div>
         <div class="paso-titulo">${paso.titulo}</div>
- 
+
         <div class="bloque">
           <div class="bloque-label">Pregunta Origen</div>
           <div class="pregunta-texto">${paso.pregunta}</div>
         </div>
- 
+
         <div class="botones-respuesta">
-          <button class="btn-si ${resp === 'si' ? 'activo' : ''}" onclick="responderProtocolo('si')">
-            ✓ Sí (aplicar decreto)
-          </button>
           <button class="btn-no ${resp === 'no' ? 'activo' : ''}" onclick="responderProtocolo('no')">
-            No está activo
+            ✓ SÍ — está bien
+          </button>
+          <button class="btn-si ${resp === 'si' ? 'activo' : ''}" onclick="responderProtocolo('si')">
+            NO — aplicar decreto
           </button>
         </div>
- 
+
         <div class="decreto-contenedor ${resp === 'si' ? 'visible' : ''}">
           <div class="decreto-label">Decreto Origen</div>
           <div class="decreto-texto">"${paso.decreto}"</div>
         </div>
- 
+
         <button class="btn-siguiente" onclick="siguienteProtocolo()" ${!resp ? 'disabled' : ''}>
           ${esUltimo ? 'Decreto general de cierre →' : 'Siguiente →'}
         </button>
@@ -860,55 +864,56 @@ function renderProtocolo() {
     </div>
   `;
 }
- 
+
 function responderProtocolo(resp) {
   estado.respuestas[`proto_${estado.pasoProtocolo}`] = resp;
-  render();
+  render(false);
 }
- 
+
 function siguienteProtocolo() {
   const total = SINTOMAS[estado.sintoma].pasos.length;
   if (estado.pasoProtocolo < total - 1) {
     estado.pasoProtocolo++;
-    render();
+    render(true);
   } else {
     estado.fase = 'completado';
-    render();
+    render(true);
   }
 }
- 
+
 function volverAlSelector() {
   estado = { fase: 'selector', sintoma: null, pasoInicio: 0, pasoProtocolo: 0, respuestas: {} };
-  render();
+  render(true);
 }
- 
+
 // ═══════════════════════════════════════════════════
 //  FASE 4: COMPLETADO + DECRETO FINAL
 // ═══════════════════════════════════════════════════
 function renderCompletado() {
   const sintoma = SINTOMAS[estado.sintoma];
   const totalSi = Object.values(estado.respuestas).filter(r => r === 'si').length;
- 
+
   return `
     <div class="completado">
       <div class="icono">✨</div>
       <h2>Protocolo completado</h2>
       <p>${sintoma.icono} ${sintoma.nombre} · ${totalSi} puntos corregidos</p>
- 
+
       <div class="decreto-general">
         <div class="titulo">Decreto general de corrección directa</div>
         <div class="texto">"${sintoma.decretoFinal}"</div>
       </div>
- 
+
       <br>
       <button class="btn-nuevo-sintoma" onclick="reiniciar()">← Trabajar otro síntoma</button>
     </div>
   `;
 }
- 
+
 // INICIO
 render();
 </script>
 </body>
 </html>
+
 
